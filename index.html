@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akshay C. C. — Public Policy Researcher, PhD Candidate at IIT Bombay, specialising in the governance of higher education in India.">
+    <title>Akshay C. C. — Public Policy Researcher</title>
+
+    <!-- Preload fonts for performance -->
+    <link rel="preload" href="fonts/Switzer-Variable.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/Literata-Variable.ttf" as="font" type="font/ttf" crossorigin>
+
+    <style>
+        /* ============================================
+           FONTS
+           ============================================ */
+        @font-face {
+            font-family: 'Switzer';
+            src: url('fonts/Switzer-Variable.ttf') format('truetype-variations');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Literata';
+            src: url('fonts/Literata-Variable.ttf') format('truetype-variations');
+            font-weight: 200 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ============================================
+           CSS CUSTOM PROPERTIES
+           ============================================ */
+        :root {
+            /* Light Theme — Warm Academic Palette */
+            --bg-primary: #f9f7f3;
+            --bg-secondary: #f2efe9;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fdfcf9;
+            --text-primary: #1a1814;
+            --text-secondary: #4a4740;
+            --text-tertiary: #7a7670;
+            --text-inverse: #f9f7f3;
+            --accent: #8b6914;
+            --accent-light: #c4a445;
+            --accent-subtle: rgba(139, 105, 20, 0.08);
+            --border-color: #e0dcd3;
+            --border-hover: #c4b896;
+            --shadow-sm: 0 1px 2px rgba(26, 24, 20, 0.04);
+            --shadow-md: 0 4px 20px rgba(26, 24, 20, 0.06);
+            --shadow-lg: 0 12px 40px rgba(26, 24, 20, 0.08);
+            --hero-bg: linear-gradient(160deg, #1a1814 0%, #2c2818 40%, #3d3520 100%);
+            --hero-text: #f2efe9;
+            --hero-accent: #c4a445;
+            --hero-muted: #a09880;
+            --tag-bg: rgba(139, 105, 20, 0.1);
+            --tag-text: #6b5010;
+            --divider: #e0dcd3;
+            --grain-opacity: 0.03;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #12110e;
+            --bg-secondary: #1a1814;
+            --bg-card: #1f1d18;
+            --bg-card-hover: #24221c;
+            --text-primary: #e8e4dc;
+            --text-secondary: #b0aba0;
+            --text-tertiary: #7a7670;
+            --text-inverse: #12110e;
+            --accent: #c4a445;
+            --accent-light: #d9bc60;
+            --accent-subtle: rgba(196, 164, 69, 0.1);
+            --border-color: #2c2a24;
+            --border-hover: #4a4538;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+            --hero-bg: linear-gradient(160deg, #0a0908 0%, #12110e 40%, #1a1610 100%);
+            --hero-text: #e8e4dc;
+            --hero-accent: #c4a445;
+            --hero-muted: #7a7670;
+            --tag-bg: rgba(196, 164, 69, 0.15);
+            --tag-text: #d9bc60;
+            --divider: #2c2a24;
+            --grain-opacity: 0.06;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+        }
+
+        /* Subtle grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: var(--grain-opacity);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Literata', Georgia, 'Times New Roman', serif;
+            font-weight: 550;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-light);
+        }
+
+        /* ============================================
+           NAVIGATION BAR
+           ============================================ */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: transparent;
+            transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+        }
+
+        .nav-bar.scrolled {
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+        }
+
+        /* Nav links default: light (over hero) */
+        .nav-bar:not(.scrolled) .nav-links a {
+            color: var(--hero-text);
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .nav-bar:not(.scrolled) .nav-links a:hover {
+            color: var(--hero-accent);
+            opacity: 1;
+        }
+
+        .nav-bar:not(.scrolled) .theme-toggle {
+            color: var(--hero-text);
+            border-color: rgba(242, 239, 233, 0.25);
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* Nav links when scrolled onto light bg */
+        .nav-bar.scrolled .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            letter-spacing: 0.04em;
+            opacity: 0.8;
+        }
+
+        .nav-bar.scrolled .nav-links a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            background: var(--bg-card);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: rotate(15deg);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+            .nav-bar {
+                padding: 0.75rem 1rem;
+            }
+            .nav-bar.scrolled {
+                padding: 0.6rem 1rem;
+            }
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--hero-bg);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0 4rem;
+        }
+
+        .hero-geometry {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-geometry .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.04;
+        }
+
+        .hero-geometry .circle-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-light);
+            top: -200px;
+            right: -100px;
+        }
+
+        .hero-geometry .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-light);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        [data-theme="dark"] .hero-grid {
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-portrait-frame {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .hero-portrait-frame::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border: 1px solid rgba(196, 164, 69, 0.2);
+            border-radius: 4px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-portrait-frame::after {
+            content: '';
+            position: absolute;
+            inset: -24px;
+            border: 1px solid rgba(196, 164, 69, 0.08);
+            border-radius: 4px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+        }
+
+        .hero-portrait-frame:hover::before {
+            inset: -6px;
+            border-color: rgba(196, 164, 69, 0.4);
+        }
+
+        .hero-portrait-frame:hover::after {
+            inset: -18px;
+            border-color: rgba(196, 164, 69, 0.15);
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 3px;
+            position: relative;
+            filter: grayscale(0.2) contrast(1.04) brightness(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: filter 0.5s ease;
+        }
+
+        .hero-image:hover {
+            filter: grayscale(0) contrast(1.06);
+        }
+
+        .hero-text {
+            color: var(--hero-text);
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--hero-accent);
+            margin-bottom: 1.5rem;
+            padding: 0.35rem 1rem;
+            border: 1px solid rgba(196, 164, 69, 0.25);
+            border-radius: 2px;
+        }
+
+        .hero-name {
+            font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--hero-text);
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+        }
+
+        .hero-title-line {
+            font-size: clamp(1.15rem, 2vw, 1.35rem);
+            font-weight: 400;
+            color: var(--hero-muted);
+            margin-bottom: 2rem;
+            font-family: 'Switzer', sans-serif;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-bio {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--hero-muted);
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(196, 164, 69, 0.4);
+            margin-bottom: 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .hero-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--hero-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .hero-meta-item a {
+            color: var(--hero-muted);
+        }
+
+        .hero-meta-item a:hover {
+            color: var(--hero-accent);
+        }
+
+        .hero-meta-icon {
+            width: 17px;
+            height: 17px;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           MAIN CONTENT
+           ============================================ */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.25rem, 4vw, 3rem);
+            color: var(--text-primary);
+            font-weight: 550;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .section-rule {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2.5rem;
+            opacity: 0.5;
+        }
+
+        /* ============================================
+           LANGUAGES
+           ============================================ */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .language-card {
+            background: var(--bg-card);
+            padding: 2rem 1.75rem;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .language-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .language-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .language-name {
+            font-size: 1.35rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+            font-family: 'Literata', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .language-level {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            font-weight: 450;
+        }
+
+        @media (max-width: 640px) {
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           EDUCATION — TIMELINE (REFINED)
+           ============================================ */
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .edu-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .edu-meta {
+            padding-top: 0.2rem;
+        }
+
+        .edu-period {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .edu-body {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 2.5rem;
+            transition: all 0.35s ease;
+            position: relative;
+        }
+
+        .edu-body:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .edu-degree {
+            font-size: 1.6rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-institution {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            font-weight: 450;
+        }
+
+        .edu-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .edu-detail-row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 1.5rem;
+            align-items: baseline;
+        }
+
+        .edu-detail-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .edu-detail-value {
+            font-size: 0.975rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .cgpa-badge {
+            display: inline-block;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            padding: 0.4rem 1.1rem;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            border: 1px solid rgba(139, 105, 20, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .edu-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .edu-detail-row {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+            .edu-body {
+                padding: 1.75rem;
+            }
+        }
+
+        /* ============================================
+           AWARDS
+           ============================================ */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .award-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 2.5rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .award-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .award-year {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .award-title {
+            font-size: 1.45rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .award-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .award-desc em {
+            display: block;
+            margin-top: 1rem;
+            color: var(--text-tertiary);
+            font-style: normal;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           CONFERENCES
+           ============================================ */
+        .conferences-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .conference-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 2.25rem 2.5rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .conference-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .conf-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            min-width: 90px;
+            padding-top: 0.2rem;
+        }
+
+        .conf-body {
+            flex: 1;
+        }
+
+        .conf-title {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.35;
+        }
+
+        .conf-organizer {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            line-height: 1.55;
+        }
+
+        @media (max-width: 640px) {
+            .conference-card {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.75rem;
+            }
+        }
+
+        /* ============================================
+           PUBLICATIONS — Highlighted Cards
+           ============================================ */
+        .pubs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pub-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pub-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .pub-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-title {
+            font-size: 1.35rem;
+            font-weight: 550;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .pub-venue {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.03em;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .pub-link:hover {
+            gap: 0.75rem;
+            color: var(--accent-light);
+        }
+
+        .pub-link-arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .pub-link:hover .pub-link-arrow {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .pubs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           SCROLL-TO-TOP BUTTON WITH PROGRESS RING
+           ============================================ */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            padding: 0;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .scroll-top .progress-ring {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .scroll-top .progress-bg {
+            fill: none;
+            stroke: var(--border-color);
+            stroke-width: 2;
+        }
+
+        .scroll-top .progress-fill {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 2;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.15s linear;
+        }
+
+        .scroll-top .arrow-icon {
+            position: relative;
+            z-index: 1;
+            color: var(--text-secondary);
+            width: 18px;
+            height: 18px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-top:hover .arrow-icon {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .scroll-top {
+                bottom: 1.25rem;
+                right: 1.25rem;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+            }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--divider);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        /* Laptop / Small Desktop (900px – 1100px) */
+        @media (max-width: 1100px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+                text-align: center;
+            }
+
+            .hero-visual {
+                order: -1;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-divider {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-meta {
+                align-items: center;
+            }
+
+            .hero-bio {
+                max-width: 480px;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .edu-item {
+                grid-template-columns: 140px 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Tablet (640px – 900px) */
+        @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding: 5rem 0 4rem;
+            }
+
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual {
+                max-width: 240px;
+            }
+
+            .hero-portrait-frame::before {
+                inset: -8px;
+            }
+            .hero-portrait-frame::after {
+                inset: -16px;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .edu-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .edu-detail-row {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .edu-body {
+                padding: 1.75rem;
+            }
+
+            .conference-card {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.75rem;
+            }
+
+            .pubs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile (up to 640px) */
+        @media (max-width: 640px) {
+            .nav-bar {
+                padding: 0.75rem 1rem;
+            }
+            .nav-bar.scrolled {
+                padding: 0.6rem 1rem;
+            }
+
+            .nav-links {
+                gap: 1.25rem;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 4.5rem 0 3rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .hero-title-line {
+                font-size: 1rem;
+            }
+
+            .hero-bio {
+                font-size: 0.925rem;
+                max-width: 100%;
+            }
+
+            .hero-visual {
+                max-width: 200px;
+            }
+
+            .hero-portrait-frame::before {
+                inset: -6px;
+            }
+            .hero-portrait-frame::after {
+                inset: -12px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .edu-body,
+            .pub-card,
+            .award-card,
+            .conference-card {
+                padding: 1.5rem;
+            }
+
+            .edu-degree {
+                font-size: 1.3rem;
+            }
+
+            .pub-title {
+                font-size: 1.15rem;
+            }
+
+            .conference-card {
+                gap: 0.4rem;
+                padding: 1.5rem;
+            }
+
+            .conf-date {
+                min-width: auto;
+                font-size: 0.7rem;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Print */
+        @media print {
+            .nav-bar, .theme-toggle, .scroll-top, footer {
+                display: none;
+            }
+            .hero {
+                min-height: auto;
+                page-break-after: always;
+            }
+            .section {
+                page-break-inside: avoid;
+                padding: 2rem 0;
+            }
+            body::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-actions">
+            <ul class="nav-links">
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#writing">Writing</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                ◐
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-geometry">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-visual">
+                <div class="hero-portrait-frame">
+                    <img src="AkshayCC_Image.jpg" alt="Akshay C. C." class="hero-image" loading="eager">
+                </div>
+            </div>
+            <div class="hero-text">
+                <span class="hero-label">Research Scholar</span>
+                <h1 class="hero-name">Akshay C. C.</h1>
+                <p class="hero-title-line">
+                    PhD Candidate, Public Policy, IIT Bombay
+                </p>
+                <div class="hero-divider"></div>
+                <p class="hero-bio">
+                    Specialising in the governance of higher education in India through institutional analysis at the Ashank Desai Centre for Public Policy, Indian Institute of Technology Bombay.
+                </p>
+                <div class="hero-meta">
+                    <span class="hero-meta-item">
+                        <svg class="hero-meta-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                        <a href="mailto:akshaycc@iitb.ac.in">akshaycc@iitb.ac.in</a>
+                    </span>
+                    <span class="hero-meta-item">
+                        <svg class="hero-meta-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <a href="mailto:akshaycc56@gmail.com">akshaycc56@gmail.com</a>
+                    </span>
+                    <span class="hero-meta-item">
+                        <svg class="hero-meta-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Mumbai, India
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <!-- Languages -->
+        <section class="section">
+            <div class="section-label">Communication</div>
+            <h2 class="section-title">Languages</h2>
+            <div class="section-rule"></div>
+            <div class="languages-grid">
+                <div class="language-card">
+                    <h3 class="language-name">Malayalam</h3>
+                    <p class="language-level">Native Speaker</p>
+                </div>
+                <div class="language-card">
+                    <h3 class="language-name">English</h3>
+                    <p class="language-level">Proficient</p>
+                </div>
+                <div class="language-card">
+                    <h3 class="language-name">Hindi</h3>
+                    <p class="language-level">Proficient</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section" id="education">
+            <div class="section-label">Academic Background</div>
+            <h2 class="section-title">Education</h2>
+            <div class="section-rule"></div>
+            <div class="edu-list">
+                <article class="edu-item">
+                    <div class="edu-meta">
+                        <span class="edu-period">2022 → Present</span>
+                    </div>
+                    <div class="edu-body">
+                        <h3 class="edu-degree">Doctor of Philosophy in Public Policy</h3>
+                        <p class="edu-institution">Indian Institute of Technology Bombay</p>
+                        <div class="edu-details">
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Working Title</span>
+                                <span class="edu-detail-value">Governance of Higher Education in India: An Institutional Analysis</span>
+                            </div>
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Guide</span>
+                                <span class="edu-detail-value">Dr Malish C. M.</span>
+                            </div>
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Centre</span>
+                                <span class="edu-detail-value">Ashank Desai Centre for Public Policy</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="edu-item">
+                    <div class="edu-meta">
+                        <span class="edu-period">2019 → 2021</span>
+                    </div>
+                    <div class="edu-body">
+                        <h3 class="edu-degree">Master of Philosophy in Sociology</h3>
+                        <p class="edu-institution">University of Hyderabad</p>
+                        <div class="edu-details">
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Research Topic</span>
+                                <span class="edu-detail-value">Energy Democracy and Social Acceptance of Energy Transition: A Review</span>
+                            </div>
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Guide</span>
+                                <span class="edu-detail-value">Dr Satyapriya Rout</span>
+                            </div>
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Performance</span>
+                                <span class="edu-detail-value"><span class="cgpa-badge">CGPA 8.07 / 10</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="edu-item">
+                    <div class="edu-meta">
+                        <span class="edu-period">2017 → 2019</span>
+                    </div>
+                    <div class="edu-body">
+                        <h3 class="edu-degree">Master of Arts in Sociology</h3>
+                        <p class="edu-institution">University of Hyderabad</p>
+                        <div class="edu-details">
+                            <div class="edu-detail-row">
+                                <span class="edu-detail-label">Performance</span>
+                                <span class="edu-detail-value"><span class="cgpa-badge">CGPA 7.0 / 10</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="section" id="awards">
+            <div class="section-label">Recognition</div>
+            <h2 class="section-title">Awards &amp; Achievements</h2>
+            <div class="section-rule"></div>
+            <div class="awards-grid">
+                <article class="award-card">
+                    <div class="award-year">2019</div>
+                    <h3 class="award-title">Junior Research Fellowship</h3>
+                    <p class="award-desc">
+                        Awarded by the University Grants Commission in Sociology, recognising excellence in research capability and academic merit.
+                        <em>Granted in July 2019</em>
+                    </p>
+                </article>
+                <article class="award-card">
+                    <div class="award-year">2019</div>
+                    <h3 class="award-title">National Eligibility Test (NET)</h3>
+                    <p class="award-desc">
+                        Qualified NET in Sociology conducted by the University Grants Commission, demonstrating proficiency in the discipline.
+                        <em>Eligible for Assistant Professor in Sociology</em>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Conferences -->
+        <section class="section">
+            <div class="section-label">Professional Development</div>
+            <h2 class="section-title">Conferences &amp; Workshops</h2>
+            <div class="section-rule"></div>
+            <div class="conferences-list">
+                <article class="conference-card">
+                    <span class="conf-date">Jan 2024</span>
+                    <div class="conf-body">
+                        <h3 class="conf-title">Vocational Education and Training in India</h3>
+                        <p class="conf-organizer">Policy Workshop — Ashank Desai Centre for Policy Studies &amp; New Political Economy Initiative, IIT Bombay</p>
+                    </div>
+                </article>
+                <article class="conference-card">
+                    <span class="conf-date">Nov 2023</span>
+                    <div class="conf-body">
+                        <h3 class="conf-title">Academic Writing Workshop for Research Scholars in Social Sciences</h3>
+                        <p class="conf-organizer">Council for Social Development, Southern Regional Centre, Hyderabad</p>
+                    </div>
+                </article>
+                <article class="conference-card">
+                    <span class="conf-date">May 2023</span>
+                    <div class="conf-body">
+                        <h3 class="conf-title">NEP 2020 and the Agenda of Higher Education Expansion</h3>
+                        <p class="conf-organizer">Policy Workshop — Ashank Desai Centre for Policy Studies &amp; New Political Economy Initiative, IIT Bombay</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="section" id="writing">
+            <div class="section-label">Publications</div>
+            <h2 class="section-title">Public Writing</h2>
+            <div class="section-rule"></div>
+            <div class="pubs-grid">
+                <article class="pub-card">
+                    <h3 class="pub-title">Latest reforms could signal the end of HE as we know it</h3>
+                    <p class="pub-authors">Malish C. M. &amp; Akshay C. C.</p>
+                    <p class="pub-venue">University World News · 5 February 2025</p>
+                    <a href="https://www.universityworldnews.com/post.php?story=20250205072836928" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        Read Article <span class="pub-link-arrow">→</span>
+                    </a>
+                </article>
+                <article class="pub-card">
+                    <h3 class="pub-title">ഉന്നത വിദ്യാഭ്യാസത്തിലെ അസമത്വത്തിൽ ഒന്നാമതാകുന്ന കേരളം <span style="font-family:'Switzer',sans-serif;font-size:0.8em;font-weight:400;color:var(--text-tertiary)">(Kerala Tops in Higher Education Inequality)</span></h3>
+                    <p class="pub-authors">Malish C. M. &amp; Akshay C. C.</p>
+                    <p class="pub-venue">True Copy Think Media · 5 June 2026</p>
+                    <a href="https://truecopythink.media/education/inequality-in-kerala-higher-education-malish-cm-and-akshay-cc-writes" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        Read Article <span class="pub-link-arrow">→</span>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Akshay C. C. &middot; All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top">
+        <svg class="progress-ring" viewBox="0 0 48 48">
+            <circle class="progress-bg" cx="24" cy="24" r="21"/>
+            <circle class="progress-fill" id="progressCircle" cx="24" cy="24" r="21"
+                    stroke-dasharray="131.95" stroke-dashoffset="131.95"/>
+        </svg>
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script>
+        // --- Copyright year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Theme Toggle ---
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else {
+            // Respect system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+
+        // --- Navbar scroll effect ---
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = scrollY;
+        }, { passive: true });
+
+        // --- Intersection Observer for scroll animations ---
+        const observerOptions = {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .edu-item, .award-card, .conference-card, .pub-card, .language-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1)';
+            observer.observe(el);
+        });
+
+        // --- Smooth scroll for anchor links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+        // --- Scroll-to-Top Button with Progress Ring ---
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const progressCircle = document.getElementById('progressCircle');
+        if (scrollTopBtn && progressCircle) {
+            const circumference = 2 * Math.PI * 21; // ~131.95
+            progressCircle.style.strokeDasharray = circumference;
+            progressCircle.style.strokeDashoffset = circumference;
+
+            function updateScrollProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+                const offset = circumference - (scrollPercent * circumference);
+                progressCircle.style.strokeDashoffset = offset;
+
+                if (scrollTop > 400) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            }
+
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+            updateScrollProgress(); // initial call
+        }
+
+    </script>
+
+</body>
+</html>
