@@ -29,7 +29,34 @@ body {
     line-height: 1.5;
 }
 
-@media (max-width: 768px) { body { padding: 14px 12px; } }
+@media (max-width: 768px) {
+    body { padding: 14px 12px; }
+    h1 { font-size: 20px; }
+    .subtitle { font-size: 12px; gap: 8px; }
+    .search-container input { font-size: 14px; padding: 10px 12px 10px 38px; }
+    .filter-btn { font-size: 12px; padding: 6px 12px; }
+    .journal-filter { padding: 6px 12px; }
+    .journal-filter select { font-size: 13px; }
+    .article-card { padding: 12px 14px; }
+    .article-card h3 { font-size: 14px; }
+    .article-card .authors { font-size: 12px; }
+    .article-card .abstract { font-size: 12px; }
+    .article-card .keyword-match { font-size: 11px; }
+    .article-card .links a { font-size: 12px; }
+    .stats-bar { font-size: 12px; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px 8px; }
+    h1 { font-size: 17px; }
+    h1 .badge { font-size: 11px; padding: 1px 8px; }
+    .filter-btn { font-size: 11px; padding: 5px 10px; }
+    .article-card { padding: 10px 12px; }
+    .article-card .meta { gap: 4px; }
+    .article-card .journal-badge { font-size: 10px; padding: 1px 6px; }
+    .article-card .topic-tag { font-size: 9px; padding: 1px 6px; }
+    .article-card .date { font-size: 10px; }
+}
 
 /* Header */
 header { margin-bottom: 24px; }
@@ -93,6 +120,10 @@ h1 .badge {
     color: var(--text-secondary);
     font-size: 18px;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .search-container .icon { font-size: 15px; left: 12px; }
 }
 
 /* Filters */
@@ -160,6 +191,12 @@ h1 .badge {
 
 .journal-filter select:hover {
     color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .journal-filter { flex: 1; width: 100%; }
+    .journal-filter select { width: 100%; }
+    .filters { gap: 6px; }
 }
 
 /* Stats */
