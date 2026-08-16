@@ -255,7 +255,18 @@ function renderUniversities(d) {
   return html;
 }
 
-function renderSummary(text) {
+function renderSummary(text, status) {
+  const s = (status || '').toLowerCase();
+
+  if (s.includes('unknown')) {
+    return `
+      <div class="detail-block summary-cell">
+        <div class="detail-heading">Brief Details</div>
+        <div class="na-text">NA</div>
+      </div>
+    `;
+  }
+
   if (!text) {
     return `
       <div class="detail-block summary-cell">
