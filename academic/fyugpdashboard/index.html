@@ -100,9 +100,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
 .summary-cell{font-size:.82rem;color:#334155;line-height:1.55;display:block;width:100%}
-.summary-text{display:inline}
-.summary-text.collapsed{display:none}
-.summary-expand{color:var(--primary);font-size:.78rem;cursor:pointer;font-weight:500;white-space:nowrap}
+
 
 /* Footer */
 .footer{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.8rem}
@@ -158,10 +156,10 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
           <th style="width:3rem;text-align:center" data-sort="num">#</th>
           <th style="width:12rem" data-sort="state">State / UT</th>
           <th style="width:11rem" data-sort="status">Status</th>
-          <th style="min-width:28rem">Summary</th>
+          <th style="min-width:24rem">Summary</th>
           <th style="width:10rem">Universities</th>
           <th style="width:5rem" data-sort="year">Year</th>
-          <th style="width:7rem">Sources</th>
+          <th style="width:10rem">Sources</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -289,30 +287,7 @@ function renderSources(d) {
 // ── Summary with expand/collapse ──
 function renderSummary(text) {
   if (!text) return '';
-  if (text.length <= 150) return `<div class="summary-cell">${text}</div>`;
-  const short = text.substring(0, 150);
-  const rest = text.substring(150);
-  const id = 'sum_' + Math.random().toString(36).substr(2, 9);
-  return `<div class="summary-cell">
-    <span class="summary-text" id="${id}">${short}... </span>
-    <span class="summary-text collapsed" id="${id}_full">${rest}</span>
-    <span class="summary-expand" onclick="toggleSummary('${id}')">Read more</span>
-  </div>`;
-}
-
-function toggleSummary(id) {
-  const short = document.getElementById(id);
-  const full = document.getElementById(id + '_full');
-  const btn = short.nextElementSibling === full ? full.nextElementSibling : short.nextElementSibling;
-  if (full.classList.contains('collapsed')) {
-    full.classList.remove('collapsed');
-    short.classList.add('collapsed');
-    btn.textContent = 'Read less';
-  } else {
-    full.classList.add('collapsed');
-    short.classList.remove('collapsed');
-    btn.textContent = 'Read more';
-  }
+  return `<div class="summary-cell">${text}</div>`;
 }
 
 // ── Desktop Table ──
@@ -329,10 +304,10 @@ function renderTable(data) {
       <td style="text-align:center;font-weight:600;color:#64748b">${i+1}</td>
       <td><strong>${d.state_name}</strong><br><span class="cat-tag ${catCls}">${d.category||'State'}</span>${d.notified_year ? `<br><span style="font-size:.7rem;color:#94a3b8">Notified: ${d.notified_year}</span>` : ''}</td>
       <td style="width:11rem"><span class="status ${si.cls}">${si.label}</span></td>
-      <td style="min-width:32rem;width:40%">${renderSummary(d.summary || d.notes || '')}</td>
+      <td style="min-width:24rem;width:34%">${renderSummary(d.summary || d.notes || '')}</td>
       <td style="width:10rem">${renderUniversities(d)}</td>
       <td style="white-space:nowrap;width:5rem">${d.notified_year || '—'}</td>
-      <td style="width:8rem">${renderSources(d)}</td>
+      <td style="width:10rem">${renderSources(d)}</td>
     </tr>`;
   }).join('');
 }
