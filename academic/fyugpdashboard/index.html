@@ -53,6 +53,11 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 
 /* Badges */
 .status{display:inline-block;font-size:.76rem;font-weight:600;padding:.25rem .75rem;border-radius:999px;white-space:nowrap}
+/* New framework */
+.s-enactment{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
+.s-implementation{background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe}
+.s-awaiting{background:#f1f5f9;color:var(--muted);border:1px solid var(--border)}
+/* Legacy statuses (for states not yet updated by AI) */
 .s-live{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
 .s-pilot,.s-draft,.s-partial{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
 .s-resist{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
@@ -124,13 +129,10 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
   <div class="filters">
     <label>Status:</label>
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="Live / Fully Adopted">🟢 Live</button>
-    <button class="filter-btn" data-filter="Pilot">🟡 Pilot</button>
-    <button class="filter-btn" data-filter="Partial">🟠 Partial</button>
-    <button class="filter-btn" data-filter="Draft">📝 Draft</button>
-    <button class="filter-btn" data-filter="Resisting">🔴 Resisting</button>
-    <button class="filter-btn" data-filter="Limited">🔵 Limited</button>
-    <button class="filter-btn" data-filter="Unknown">⚪ Unknown</button>
+    <button class="filter-btn" data-filter="Enactment">📜 Enactment</button>
+    <button class="filter-btn" data-filter="Implementation">⚙️ Implementation</button>
+    <button class="filter-btn" data-filter="Awaiting">⏳ Awaiting</button>
+    <button class="filter-btn" data-filter="Legacy">⚪ Legacy / Old Data</button>
   </div>
   <div class="filters" style="margin-top:-.4rem">
     <label>Type:</label>
@@ -178,27 +180,40 @@ let sortDir = 'asc';
 // ── Status helpers ──
 function statusInfo(status) {
   const s = (status || '').toLowerCase();
-  if (s.includes('live') || s.includes('fully'))   return {label:'State-wide adopted', cls:'s-live', short:'Live'};
-  if (s.includes('pilot') || s.includes('phased'))  return {label:'Phased rollout',    cls:'s-pilot', short:'Pilot'};
-  if (s.includes('draft') || s.includes('proposed'))return {label:'Draft / Proposed',   cls:'s-draft', short:'Draft'};
-  if (s.includes('partial'))                        return {label:'Partial',            cls:'s-partial', short:'Partial'};
-  if (s.includes('resist') || s.includes('not adopt'))return {label:'Actively opposed', cls:'s-resist', short:'Resisting'};
-  if (s.includes('limited') || s.includes('select'))return {label:'Central Univ. only', cls:'s-limited', short:'Limited'};
-  return {label:'No data', cls:'s-unknown', short:'Unknown'};
+  // New framework
+  if (s.includes('enactment') && s.includes('state-wide'))    return {label:'Enactment — State-wide', cls:'s-enactment', short:'Enactment'};
+  if (s.includes('enactment') && s.includes('select univ'))   return {label:'Enactment — Select Univ.', cls:'s-enactment', short:'Enactment'};
+  if (s.includes('enactment') && s.includes('select coll'))   return {label:'Enactment — Select Colleges', cls:'s-enactment', short:'Enactment'};
+  if (s.includes('enactment'))                                return {label:'FYUGP Enactment', cls:'s-enactment', short:'Enactment'};
+  if (s.includes('implementation') && s.includes('state-wide')) return {label:'Implementation — State-wide', cls:'s-implementation', short:'Implementation'};
+  if (s.includes('implementation') && s.includes('select univ')) return {label:'Implementation — Select Univ.', cls:'s-implementation', short:'Implementation'};
+  if (s.includes('implementation') && s.includes('select coll')) return {label:'Implementation — Select Colleges', cls:'s-implementation', short:'Implementation'};
+  if (s.includes('implementation'))                           return {label:'FYUGP Implementation', cls:'s-implementation', short:'Implementation'};
+  if (s.includes('awaiting'))                                 return {label:'Awaiting FYUGP Adoption', cls:'s-awaiting', short:'Awaiting'};
+  // Legacy statuses (for states not yet updated by AI)
+  if (s.includes('live') || s.includes('fully'))              return {label:status, cls:'s-live', short:'Live (Legacy)'};
+  if (s.includes('pilot') || s.includes('phased'))            return {label:status, cls:'s-pilot', short:'Pilot (Legacy)'};
+  if (s.includes('draft') || s.includes('proposed'))          return {label:status, cls:'s-draft', short:'Draft (Legacy)'};
+  if (s.includes('partial'))                                  return {label:status, cls:'s-partial', short:'Partial (Legacy)'};
+  if (s.includes('resist') || s.includes('not adopt'))        return {label:status, cls:'s-resist', short:'Resisting (Legacy)'};
+  if (s.includes('limited') || s.includes('select'))          return {label:status, cls:'s-limited', short:'Limited (Legacy)'};
+  if (s.includes('unknown'))                                  return {label:status, cls:'s-unknown', short:'Unknown (Legacy)'};
+  return {label: status || 'No data', cls:'s-unknown', short:'Unknown'};
 }
 
 // ── Stats ──
 function renderStats() {
   const count = (re) => allData.filter(d => re.test((d.implementation_status||'').toLowerCase())).length;
+  const enactment = count(/enactment/);
+  const implementation = count(/implementation/);
+  const awaiting = count(/awaiting/);
+  const legacy = allData.length - enactment - implementation - awaiting;
   document.getElementById('statsBar').innerHTML = `
     <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
-    <div class="stat-card"><div class="num">${count(/live|fully/)}</div><div class="lbl">🟢 Live</div></div>
-    <div class="stat-card"><div class="num">${count(/pilot|phased/)}</div><div class="lbl">🟡 Pilot</div></div>
-    <div class="stat-card"><div class="num">${count(/partial/)}</div><div class="lbl">🟠 Partial</div></div>
-    <div class="stat-card"><div class="num">${count(/draft|proposed/)}</div><div class="lbl">📝 Draft</div></div>
-    <div class="stat-card"><div class="num">${count(/resist|not adopt/)}</div><div class="lbl">🔴 Resisting</div></div>
-    <div class="stat-card"><div class="num">${count(/limited|select/)}</div><div class="lbl">🔵 Limited</div></div>
-    <div class="stat-card"><div class="num">${count(/unknown/)}</div><div class="lbl">⚪ Unknown</div></div>
+    <div class="stat-card"><div class="num">${enactment}</div><div class="lbl">📜 Enactment</div></div>
+    <div class="stat-card"><div class="num">${implementation}</div><div class="lbl">⚙️ Implementation</div></div>
+    <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Awaiting</div></div>
+    <div class="stat-card"><div class="num">${legacy}</div><div class="lbl">⚪ Legacy</div></div>
   `;
 }
 
@@ -425,12 +440,13 @@ function applyFilters() {
 
   if (filter !== 'all') {
     const checks = {
-      'Pilot':     s => /pilot|phased/.test(s.toLowerCase()),
-      'Partial':   s => /partial/.test(s.toLowerCase()),
-      'Draft':     s => /draft|proposed/.test(s.toLowerCase()),
-      'Resisting': s => /resist|not adopt/.test(s.toLowerCase()),
-      'Limited':   s => /limited|select/.test(s.toLowerCase()),
-      'Unknown':   s => /unknown/.test(s.toLowerCase()),
+      'Enactment':     s => /enactment/.test(s.toLowerCase()),
+      'Implementation': s => /implementation/.test(s.toLowerCase()),
+      'Awaiting':      s => /awaiting/.test(s.toLowerCase()),
+      'Legacy':        s => {
+        const sl = s.toLowerCase();
+        return !sl.includes('enactment') && !sl.includes('implementation') && !sl.includes('awaiting');
+      },
     };
     const checker = checks[filter] || (s => s.toLowerCase().includes(filter.toLowerCase()));
     filtered = filtered.filter(d => checker(d.implementation_status || ''));
