@@ -136,6 +136,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <button class="filter-btn" data-filter="Enactment">📜 Enactment</button>
     <button class="filter-btn" data-filter="Implementation">⚙️ Implementation</button>
     <button class="filter-btn" data-filter="Awaiting">⏳ Adoption Awaited</button>
+    <button class="filter-btn" data-filter="Unknown">⚪ Unknown</button>
   </div>
 
   <div class="filters" style="margin-top:-.4rem">
@@ -209,12 +210,14 @@ function renderStats() {
   const enactment = count(/enactment/);
   const implementation = count(/implementation/);
   const awaiting = count(/awaiting/);
+  const unknown = count(/unknown/);
 
   document.getElementById('statsBar').innerHTML = `
     <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
     <div class="stat-card"><div class="num">${enactment}</div><div class="lbl">📜 Enactment</div></div>
     <div class="stat-card"><div class="num">${implementation}</div><div class="lbl">⚙️ Implementation</div></div>
     <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Adoption Awaited</div></div>
+    <div class="stat-card"><div class="num">${unknown}</div><div class="lbl">⚪ Unknown</div></div>
   `;
 }
 
@@ -464,6 +467,7 @@ function applyFilters() {
       'Enactment': s => /enactment/.test(s.toLowerCase()),
       'Implementation': s => /implementation/.test(s.toLowerCase()),
       'Awaiting': s => /awaiting/.test(s.toLowerCase()),
+      'Unknown': s => /unknown/.test(s.toLowerCase()),
     };
     const checker = checks[filter] || (s => s.toLowerCase().includes(filter.toLowerCase()));
     filtered = filtered.filter(d => checker(d.implementation_status || ''));
