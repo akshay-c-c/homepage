@@ -99,7 +99,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol{margin:0;padding-left:1.3rem;font-size:.78rem;color:#334155}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
-.summary-cell{font-size:.82rem;color:#334155;line-height:1.5;min-width:26rem}
+.summary-cell{font-size:.82rem;color:#334155;line-height:1.55;display:block;width:100%}
 .summary-text{display:inline}
 .summary-text.collapsed{display:none}
 .summary-expand{color:var(--primary);font-size:.78rem;cursor:pointer;font-weight:500;white-space:nowrap}
@@ -328,11 +328,11 @@ function renderTable(data) {
     return `<tr>
       <td style="text-align:center;font-weight:600;color:#64748b">${i+1}</td>
       <td><strong>${d.state_name}</strong><br><span class="cat-tag ${catCls}">${d.category||'State'}</span>${d.notified_year ? `<br><span style="font-size:.7rem;color:#94a3b8">Notified: ${d.notified_year}</span>` : ''}</td>
-      <td><span class="status ${si.cls}">${si.label}</span></td>
-      ${renderSummary(d.summary || d.notes || '')}
-      <td>${renderUniversities(d)}</td>
-      <td style="white-space:nowrap">${d.notified_year || '—'}</td>
-      <td>${renderSources(d)}</td>
+      <td style="width:11rem"><span class="status ${si.cls}">${si.label}</span></td>
+      <td style="min-width:32rem;width:40%">${renderSummary(d.summary || d.notes || '')}</td>
+      <td style="width:10rem">${renderUniversities(d)}</td>
+      <td style="white-space:nowrap;width:5rem">${d.notified_year || '—'}</td>
+      <td style="width:8rem">${renderSources(d)}</td>
     </tr>`;
   }).join('');
 }
