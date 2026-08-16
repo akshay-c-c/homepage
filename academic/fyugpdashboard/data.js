@@ -160,7 +160,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Affiliated to Pondicherry University (FYUGP adopted 2023).",
     "universities": [
       {
@@ -182,7 +182,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "One of the earliest states to implement across all universities simultaneously.",
     "universities": [
       {
@@ -225,7 +225,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Adoption is primarily driven by central university directives.",
     "universities": [
       {
@@ -258,7 +258,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Full state-wide adoption with curriculum framework notified.",
     "universities": [
       {
@@ -306,7 +306,7 @@ const FYUGP_DATA = [
     "notified_semester": "Partial since 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Mixed implementation - central universities leading, state universities catching up.",
     "universities": [
       {
@@ -339,7 +339,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Follows Punjab/central pattern.",
     "universities": [
       {
@@ -367,7 +367,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Implementation primarily at central institutions.",
     "universities": [
       {
@@ -410,7 +410,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Data unavailable.",
     "universities": [],
     "timeline": [],
@@ -426,7 +426,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "DU's FYUGP model has served as a template for other universities nationally.",
     "universities": [
       {
@@ -469,7 +469,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Small state with a single major university - complete adoption.",
     "universities": [
       {
@@ -497,7 +497,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Strong state-level coordination led to swift implementation.",
     "universities": [
       {
@@ -545,7 +545,7 @@ const FYUGP_DATA = [
     "notified_semester": "Pilot from 2022",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Phased approach - pilot first, then gradual expansion.",
     "universities": [
       {
@@ -583,7 +583,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Early adopter among northern states.",
     "universities": [
       {
@@ -616,7 +616,7 @@ const FYUGP_DATA = [
     "notified_semester": "Partial from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Gradual implementation underway.",
     "universities": [
       {
@@ -654,7 +654,7 @@ const FYUGP_DATA = [
     "notified_semester": "Partial from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Urban universities adopted; rural colleges lagging.",
     "universities": [
       {
@@ -692,7 +692,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2021-22",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Pioneer state - first to implement NEP undergraduate framework fully.",
     "universities": [
       {
@@ -735,7 +735,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2024-25",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Deliberate rollout after extensive consultation; later than some states but comprehensive.",
     "universities": [
       {
@@ -778,7 +778,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Nascent higher education infrastructure.",
     "universities": [
       {
@@ -806,7 +806,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Data unavailable.",
     "universities": [],
     "timeline": [],
@@ -822,7 +822,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Early state-wide adoption with centralized coordination.",
     "universities": [
       {
@@ -870,7 +870,7 @@ const FYUGP_DATA = [
     "notified_semester": "Phased from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Phased approach due to large number of affiliated colleges.",
     "universities": [
       {
@@ -918,7 +918,7 @@ const FYUGP_DATA = [
     "notified_semester": "Partial from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Limited to central university directives.",
     "universities": [
       {
@@ -951,7 +951,7 @@ const FYUGP_DATA = [
     "notified_semester": "Limited from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Central university leads; state institutions still consulting.",
     "universities": [
       {
@@ -984,7 +984,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Minimal state-level adoption data.",
     "universities": [
       {
@@ -1012,7 +1012,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Insufficient data on state-level rollout.",
     "universities": [
       {
@@ -1040,7 +1040,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Comprehensive state-wide adoption with skill integration.",
     "universities": [
       {
@@ -1088,7 +1088,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Central university compliance; local institutions unclear.",
     "universities": [
       {
@@ -1116,7 +1116,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Strong implementation across major universities.",
     "universities": [
       {
@@ -1159,7 +1159,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "State-wide adoption with unified framework.",
     "universities": [
       {
@@ -1202,7 +1202,7 @@ const FYUGP_DATA = [
     "notified_semester": "Limited from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Central university adoption; state institutions unclear.",
     "universities": [
       {
@@ -1240,7 +1240,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Most prominent state resisting NEP FYUGP as of early 2025.",
     "universities": [
       {
@@ -1293,7 +1293,7 @@ const FYUGP_DATA = [
     "notified_semester": "Partial from 2023",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Mixed implementation across universities.",
     "universities": [
       {
@@ -1331,7 +1331,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Primarily central university compliance.",
     "universities": [
       {
@@ -1359,7 +1359,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2022-23",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Large-scale implementation across India's most populous state.",
     "universities": [
       {
@@ -1412,7 +1412,7 @@ const FYUGP_DATA = [
     "notified_semester": "Academic Year 2023-24",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "Swift state-wide adoption.",
     "universities": [
       {
@@ -1455,7 +1455,7 @@ const FYUGP_DATA = [
     "notified_semester": "",
     "source_url_1": "",
     "source_url_2": "",
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-08-16",
     "notes": "State govt has been cautious/ambivalent about full NEP adoption.",
     "universities": [
       {

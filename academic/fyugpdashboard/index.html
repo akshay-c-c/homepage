@@ -21,7 +21,7 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 .hero p{font-size:1.05rem;opacity:.85;max-width:920px;margin:.5rem auto 0}
 
 /* Stats */
-.stats-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:920px;margin:-1.5rem auto 0;padding:0 1rem}
+.stats-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:1100px;margin:-1.5rem auto 0;padding:0 1rem}
 .stat-card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:1rem 1.5rem;text-align:center;flex:1 0 130px;max-width:170px}
 .stat-card .num{font-size:1.8rem;font-weight:700;color:var(--primary)}
 .stat-card .lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-top:.2rem}
@@ -39,8 +39,12 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 .search-box:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.15)}
 
 /* Table */
+.table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem}
-th{padding:.5rem 1rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;white-space:nowrap}
+th{padding:.5rem 1rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--primary)}
+th.sort-asc::after{content:" ▲";font-size:.6rem}
+th.sort-desc::after{content:" ▼";font-size:.6rem}
 tbody tr{background:var(--card);box-shadow:var(--shadow);transition:box-shadow .15s,transform .15s}
 tbody tr:hover{box-shadow:var(--shadow-h);transform:translateY(-1px)}
 td{padding:.85rem 1rem;border:none;vertical-align:top}
@@ -58,8 +62,10 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .cat-state{background:#dbeafe;color:#3730a3}
 
 /* Source panel */
-.source-btn{background:none;border:1px solid #cbd5e1;border-radius:6px;padding:.25rem .7rem;font-size:.75rem;cursor:pointer;color:var(--primary);transition:.15s}
+.source-btn{background:none;border:1px solid #cbd5e1;border-radius:6px;padding:.25rem .7rem;font-size:.75rem;cursor:pointer;color:var(--primary);transition:.15s;white-space:nowrap}
 .source-btn:hover{background:#eef2ff;border-color:#a5b4fc}
+.source-btn.has-sources{background:#4f46e5;color:#fff;border-color:#4f46e5}
+.source-btn.has-sources:hover{background:#4338ca}
 .source-panel{display:none;margin-top:.6rem;padding:.8rem 1rem;background:#f8fafc;border-radius:8px;border-left:3px solid var(--primary);font-size:.82rem}
 .source-panel.open{display:block}
 .source-panel ul{list-style:none;padding:0;margin:0}
@@ -80,17 +86,29 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
 .summary-cell{font-size:.82rem;color:#334155;max-width:380px}
+.summary-text{display:inline}
+.summary-text.collapsed{display:none}
+.summary-expand{color:var(--primary);font-size:.78rem;cursor:pointer;font-weight:500;white-space:nowrap}
 
 /* Footer */
 .footer{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.8rem}
 
-/* Responsive */
+/* Mobile */
 @media(max-width:780px){
   .hero h1{font-size:1.6rem}
   .stat-card{flex:1 0 100px;max-width:140px}
-  th,td{padding:.6rem .5rem;font-size:.8rem}
-  .summary-cell{max-width:200px;font-size:.75rem}
+  .stat-card .num{font-size:1.4rem}
+  /* Switch to card layout */
+  .table-wrap{display:none}
+  .card-list{display:flex;flex-direction:column;gap:1rem}
+  .state-card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:1.2rem;overflow:hidden}
+  .state-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
+  .state-card-name{font-size:1.1rem;font-weight:700}
+  .state-card-meta{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+  .state-card-summary{font-size:.85rem;color:#334155;margin:.5rem 0}
+  .state-card-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
 }
+@media(min-width:781px){.card-list{display:none}}
 </style>
 </head>
 <body>
@@ -108,6 +126,8 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="Live / Fully Adopted">🟢 Live</button>
     <button class="filter-btn" data-filter="Pilot">🟡 Pilot</button>
+    <button class="filter-btn" data-filter="Partial">🟠 Partial</button>
+    <button class="filter-btn" data-filter="Draft">📝 Draft</button>
     <button class="filter-btn" data-filter="Resisting">🔴 Resisting</button>
     <button class="filter-btn" data-filter="Limited">🔵 Limited</button>
     <button class="filter-btn" data-filter="Unknown">⚪ Unknown</button>
@@ -120,20 +140,26 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <input class="search-box" id="search" placeholder="🔍 Search state, university, or keyword…">
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th style="width:2rem;text-align:center">#</th>
-        <th>State / UT</th>
-        <th>Status</th>
-        <th>Summary</th>
-        <th>Universities</th>
-        <th>Year</th>
-        <th>Sources</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+  <!-- Desktop: Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:2rem;text-align:center" data-sort="num">#</th>
+          <th data-sort="state">State / UT</th>
+          <th data-sort="status">Status</th>
+          <th>Summary</th>
+          <th>Universities</th>
+          <th data-sort="year">Year</th>
+          <th>Sources</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Mobile: Cards -->
+  <div class="card-list" id="cardList"></div>
 </div>
 
 <div class="footer">
@@ -146,17 +172,19 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 <script>
 let allData = FYUGP_DATA.filter(d => d.state_name !== '__NATIONAL__');
 let currentCategory = 'all';
+let sortColumn = null;
+let sortDir = 'asc';
 
 // ── Status helpers ──
 function statusInfo(status) {
   const s = (status || '').toLowerCase();
-  if (s.includes('live') || s.includes('fully'))   return {label:'State-wide adopted', cls:'s-live'};
-  if (s.includes('pilot') || s.includes('phased'))  return {label:'Phased rollout',    cls:'s-pilot'};
-  if (s.includes('draft') || s.includes('proposed'))return {label:'Draft / Proposed',   cls:'s-draft'};
-  if (s.includes('partial'))                        return {label:'Partial',            cls:'s-partial'};
-  if (s.includes('resist') || s.includes('not adopt'))return {label:'Actively opposed', cls:'s-resist'};
-  if (s.includes('limited') || s.includes('select'))return {label:'Central Univ. only', cls:'s-limited'};
-  return {label:'No data', cls:'s-unknown'};
+  if (s.includes('live') || s.includes('fully'))   return {label:'State-wide adopted', cls:'s-live', short:'Live'};
+  if (s.includes('pilot') || s.includes('phased'))  return {label:'Phased rollout',    cls:'s-pilot', short:'Pilot'};
+  if (s.includes('draft') || s.includes('proposed'))return {label:'Draft / Proposed',   cls:'s-draft', short:'Draft'};
+  if (s.includes('partial'))                        return {label:'Partial',            cls:'s-partial', short:'Partial'};
+  if (s.includes('resist') || s.includes('not adopt'))return {label:'Actively opposed', cls:'s-resist', short:'Resisting'};
+  if (s.includes('limited') || s.includes('select'))return {label:'Central Univ. only', cls:'s-limited', short:'Limited'};
+  return {label:'No data', cls:'s-unknown', short:'Unknown'};
 }
 
 // ── Stats ──
@@ -166,13 +194,107 @@ function renderStats() {
     <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
     <div class="stat-card"><div class="num">${count(/live|fully/)}</div><div class="lbl">🟢 Live</div></div>
     <div class="stat-card"><div class="num">${count(/pilot|phased/)}</div><div class="lbl">🟡 Pilot</div></div>
+    <div class="stat-card"><div class="num">${count(/partial/)}</div><div class="lbl">🟠 Partial</div></div>
+    <div class="stat-card"><div class="num">${count(/draft|proposed/)}</div><div class="lbl">📝 Draft</div></div>
     <div class="stat-card"><div class="num">${count(/resist|not adopt/)}</div><div class="lbl">🔴 Resisting</div></div>
     <div class="stat-card"><div class="num">${count(/limited|select/)}</div><div class="lbl">🔵 Limited</div></div>
     <div class="stat-card"><div class="num">${count(/unknown/)}</div><div class="lbl">⚪ Unknown</div></div>
   `;
 }
 
-// ── Table ──
+// ── University HTML ──
+function renderUniversities(d) {
+  const univs = d.universities || [];
+  if (!univs.length) return '<span style="color:#94a3b8;font-size:.75rem">—</span>';
+
+  const groups = {};
+  univs.forEach(u => { const t = u.type||'Other'; (groups[t] = groups[t] || []).push(u); });
+  const typeOrder = ['State University','Central University','Private University','Deemed University','Other'];
+  const sortedTypes = Object.keys(groups).sort((a,b) => {
+    const ia = typeOrder.indexOf(a), ib = typeOrder.indexOf(b);
+    return (ia===-1?99:ia) - (ib===-1?99:ib);
+  });
+
+  const sid = d.state_name.replace(/[\s&]+/g,'_');
+  let html = '<div class="univ-section"><div class="univ-type-row">';
+  sortedTypes.forEach(t => {
+    const label = t.replace(' University',' Universities');
+    html += `<button class="univ-type-btn" onclick="toggleUniv('${sid}','${t}')">${label} <span class="count">${groups[t].length}</span></button>`;
+  });
+  html += '</div>';
+  sortedTypes.forEach(t => {
+    groups[t].sort((a,b) => (a.year||'9999').localeCompare(b.year||'9999') || a.name.localeCompare(b.name));
+    html += `<div class="univ-list-panel" id="ul_${sid}_${t}"><ol>`;
+    groups[t].forEach(u => {
+      html += `<li>${u.name}${u.year ? ` <span style="color:#64748b;font-size:.72rem">(${u.year})</span>` : ''}</li>`;
+    });
+    html += '</ol></div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+// ── Sources HTML ──
+function renderSources(d) {
+  const srcId = d.state_name.replace(/\s+/g,'_');
+  const articles = d.articles || [];
+  const hasSources = articles.length > 0;
+
+  let html = `<button class="source-btn${hasSources ? ' has-sources' : ''}" onclick="toggleSrc('${srcId}')">📄 Sources${articles.length ? ` (${articles.length})` : ''}</button>`;
+  html += `<div class="source-panel" id="src_${srcId}">`;
+
+  if (articles.length) {
+    html += '<div style="font-size:.7rem;text-transform:uppercase;color:#64748b;margin-bottom:.3rem">📰 News Articles</div><ul>';
+    articles.forEach(a => {
+      if (a.url && a.url.length > 15) {
+        html += `<li><a href="${a.url}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''}</span></li>`;
+      } else {
+        const q = encodeURIComponent(`"${a.title}" ${a.source}`);
+        html += `<li><a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''} · 🔍 Search</span></li>`;
+      }
+    });
+    html += '</ul>';
+  } else {
+    html += '<div style="color:#94a3b8;font-style:italic;font-size:.78rem">No verified sources yet. See official portal below for reference.</div>';
+  }
+
+  if (PORTALS[d.state_name]) {
+    html += `<div style="margin-top:.6rem;border-top:1px solid #e2e8f0;padding-top:.5rem"><div style="font-size:.7rem;text-transform:uppercase;color:#64748b">🔗 Official Portal</div><a href="${PORTALS[d.state_name].url}" target="_blank" rel="noopener" style="font-size:.82rem">${PORTALS[d.state_name].label} →</a></div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+// ── Summary with expand/collapse ──
+function renderSummary(text) {
+  if (!text) return '';
+  if (text.length <= 150) return `<div class="summary-cell">${text}</div>`;
+  const short = text.substring(0, 150);
+  const rest = text.substring(150);
+  const id = 'sum_' + Math.random().toString(36).substr(2, 9);
+  return `<div class="summary-cell">
+    <span class="summary-text" id="${id}">${short}... </span>
+    <span class="summary-text collapsed" id="${id}_full">${rest}</span>
+    <span class="summary-expand" onclick="toggleSummary('${id}')">Read more</span>
+  </div>`;
+}
+
+function toggleSummary(id) {
+  const short = document.getElementById(id);
+  const full = document.getElementById(id + '_full');
+  const btn = short.nextElementSibling === full ? full.nextElementSibling : short.nextElementSibling;
+  if (full.classList.contains('collapsed')) {
+    full.classList.remove('collapsed');
+    short.classList.add('collapsed');
+    btn.textContent = 'Read less';
+  } else {
+    full.classList.add('collapsed');
+    short.classList.remove('collapsed');
+    btn.textContent = 'Read more';
+  }
+}
+
+// ── Desktop Table ──
 function renderTable(data) {
   const tbody = document.getElementById('tableBody');
   if (!data.length) {
@@ -182,71 +304,43 @@ function renderTable(data) {
   tbody.innerHTML = data.map((d, i) => {
     const si = statusInfo(d.implementation_status);
     const catCls = d.category === 'Union Territory' ? '' : 'cat-state';
-    const univs = d.universities || [];
-
-    // Group universities by type
-    const groups = {};
-    univs.forEach(u => { const t = u.type||'Other'; (groups[t] = groups[t] || []).push(u); });
-    const typeOrder = ['State University','Central University','Private University','Deemed University','Other'];
-    const sortedTypes = Object.keys(groups).sort((a,b) => {
-      const ia = typeOrder.indexOf(a), ib = typeOrder.indexOf(b);
-      return (ia===-1?99:ia) - (ib===-1?99:ib);
-    });
-
-    let univHtml;
-    if (univs.length) {
-      const sid = d.state_name.replace(/[\s&]+/g,'_');
-      univHtml = '<div class="univ-section"><div class="univ-type-row">';
-      sortedTypes.forEach(t => {
-        const label = t.replace(' University',' Universities');
-        univHtml += `<button class="univ-type-btn" onclick="toggleUniv('${sid}','${t}')">${label} <span class="count">${groups[t].length}</span></button>`;
-      });
-      univHtml += '</div>';
-      sortedTypes.forEach(t => {
-        groups[t].sort((a,b) => (a.year||'9999').localeCompare(b.year||'9999') || a.name.localeCompare(b.name));
-        univHtml += `<div class="univ-list-panel" id="ul_${sid}_${t}"><ol>`;
-        groups[t].forEach(u => {
-          univHtml += `<li>${u.name}${u.year ? ` <span style="color:#64748b;font-size:.72rem">(${u.year})</span>` : ''}</li>`;
-        });
-        univHtml += '</ol></div>';
-      });
-      univHtml += '</div>';
-    } else {
-      univHtml = '<span style="color:#94a3b8;font-size:.75rem">—</span>';
-    }
-
-    const srcId = d.state_name.replace(/\s+/g,'_');
-    const articles = d.articles || [];
-    let srcHtml = `<button class="source-btn" onclick="toggleSrc('${srcId}')">📄 Sources${articles.length ? ` (${articles.length})` : ''}</button>`;
-    srcHtml += `<div class="source-panel" id="src_${srcId}">`;
-    if (articles.length) {
-      srcHtml += '<div style="font-size:.7rem;text-transform:uppercase;color:#64748b;margin-bottom:.3rem">📰 News Articles</div><ul>';
-      articles.forEach(a => {
-        if (a.url && a.url.length > 15) {
-          srcHtml += `<li><a href="${a.url}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''}</span></li>`;
-        } else {
-          const q = encodeURIComponent(`"${a.title}" ${a.source}`);
-          srcHtml += `<li><a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''} · 🔍 Search</span></li>`;
-        }
-      });
-      srcHtml += '</ul>';
-    } else {
-      srcHtml += '<div style="color:#94a3b8;font-style:italic;font-size:.78rem">No articles recorded.</div>';
-    }
-    if (PORTALS[d.state_name]) {
-      srcHtml += `<div style="margin-top:.6rem;border-top:1px solid #e2e8f0;padding-top:.5rem"><div style="font-size:.7rem;text-transform:uppercase;color:#64748b">🔗 Official Portal</div><a href="${PORTALS[d.state_name].url}" target="_blank" rel="noopener" style="font-size:.82rem">${PORTALS[d.state_name].label} →</a></div>`;
-    }
-    srcHtml += '</div>';
-
     return `<tr>
       <td style="text-align:center;font-weight:600;color:#64748b">${i+1}</td>
       <td><strong>${d.state_name}</strong><br><span class="cat-tag ${catCls}">${d.category||'State'}</span>${d.notified_year ? `<br><span style="font-size:.7rem;color:#94a3b8">Notified: ${d.notified_year}</span>` : ''}</td>
       <td><span class="status ${si.cls}">${si.label}</span></td>
-      <td class="summary-cell">${d.summary || d.notes || ''}</td>
-      <td>${univHtml}</td>
+      ${renderSummary(d.summary || d.notes || '')}
+      <td>${renderUniversities(d)}</td>
       <td style="white-space:nowrap">${d.notified_year || '—'}</td>
-      <td>${srcHtml}</td>
+      <td>${renderSources(d)}</td>
     </tr>`;
+  }).join('');
+}
+
+// ── Mobile Cards ──
+function renderCards(data) {
+  const container = document.getElementById('cardList');
+  if (!data.length) {
+    container.innerHTML = '<div style="text-align:center;padding:2rem;color:#94a3b8">No matching records.</div>';
+    return;
+  }
+  container.innerHTML = data.map(d => {
+    const si = statusInfo(d.implementation_status);
+    const articles = d.articles || [];
+    const hasSources = articles.length > 0;
+    return `<div class="state-card">
+      <div class="state-card-head">
+        <div>
+          <div class="state-card-name">${d.state_name}</div>
+          <div class="state-card-meta">${d.category||'State'}${d.notified_year ? ` · Notified: ${d.notified_year}` : ''}</div>
+        </div>
+        <span class="status ${si.cls}">${si.short}</span>
+      </div>
+      <div class="state-card-summary">${d.summary || d.notes || ''}</div>
+      <div class="state-card-actions">
+        ${renderUniversities(d)}
+        ${renderSources(d)}
+      </div>
+    </div>`;
   }).join('');
 }
 
@@ -266,6 +360,36 @@ function toggleUniv(sid, type) {
   document.querySelectorAll('.univ-list-panel.open').forEach(p => { if (p.id.startsWith('ul_' + sid + '_')) p.classList.remove('open'); });
   document.querySelectorAll('.univ-type-btn.active').forEach(b => { if (b.getAttribute('onclick').includes("'" + sid + "'")) b.classList.remove('active'); });
   if (!open) { panel.classList.add('open'); panel.previousElementSibling.querySelector(`[onclick*="${type}"]`)?.classList.add('active'); }
+}
+
+// ── Sorting ──
+document.querySelectorAll('th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.sort;
+    if (sortColumn === col) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortColumn = col;
+      sortDir = 'asc';
+    }
+    document.querySelectorAll('th').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+    applyFilters();
+  });
+});
+
+function sortData(data) {
+  if (!sortColumn) return data;
+  return [...data].sort((a, b) => {
+    let va, vb;
+    if (sortColumn === 'state') { va = a.state_name; vb = b.state_name; }
+    else if (sortColumn === 'status') { va = statusInfo(a.implementation_status).short; vb = statusInfo(b.implementation_status).short; }
+    else if (sortColumn === 'year') { va = a.notified_year || '9999'; vb = b.notified_year || '9999'; }
+    else if (sortColumn === 'num') { va = 0; vb = 0; }
+    if (va < vb) return sortDir === 'asc' ? -1 : 1;
+    if (va > vb) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
 }
 
 // ── Filters ──
@@ -302,6 +426,8 @@ function applyFilters() {
   if (filter !== 'all') {
     const checks = {
       'Pilot':     s => /pilot|phased/.test(s.toLowerCase()),
+      'Partial':   s => /partial/.test(s.toLowerCase()),
+      'Draft':     s => /draft|proposed/.test(s.toLowerCase()),
       'Resisting': s => /resist|not adopt/.test(s.toLowerCase()),
       'Limited':   s => /limited|select/.test(s.toLowerCase()),
       'Unknown':   s => /unknown/.test(s.toLowerCase()),
@@ -318,12 +444,15 @@ function applyFilters() {
     );
   }
 
+  filtered = sortData(filtered);
   renderTable(filtered);
+  renderCards(filtered);
 }
 
 // ── Init ──
 renderStats();
 renderTable(allData);
+renderCards(allData);
 
 // Footer date
 const dates = allData.map(d => d.last_updated).filter(Boolean).sort();
