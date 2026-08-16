@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FYUGP Dashboard — India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0f2f5;--card:#fff;--text:#1a2332;--muted:#64748b;--primary:#4f46e5;
+  --border:#e2e8f0;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.05);--shadow-h:0 3px 12px rgba(0,0,0,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
+
+/* Hero */
+.hero{background:#d2d7e3;padding:3rem 1.5rem 2.5rem;text-align:center}
+.hero h1{font-size:2.2rem;font-weight:700}
+.hero p{font-size:1.05rem;opacity:.85;max-width:920px;margin:.5rem auto 0}
+
+/* Stats */
+.stats-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:920px;margin:-1.5rem auto 0;padding:0 1rem}
+.stat-card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:1rem 1.5rem;text-align:center;flex:1 0 130px;max-width:170px}
+.stat-card .num{font-size:1.8rem;font-weight:700;color:var(--primary)}
+.stat-card .lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-top:.2rem}
+
+/* Layout */
+.container{max-width:1200px;margin:0 auto;padding:1.5rem 1rem}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem;align-items:center}
+.filters label{font-size:.85rem;font-weight:600;color:#475569}
+.filter-btn{background:#e2e8f0;border:none;border-radius:999px;padding:.35rem 1rem;font-size:.8rem;cursor:pointer;transition:.15s}
+.filter-btn:hover{background:#cbd5e1}
+.filter-btn.active{background:var(--primary);color:#fff}
+.search-box{flex:1;min-width:180px;border:1px solid #cbd5e1;border-radius:8px;padding:.4rem .8rem;font-size:.85rem;outline:none}
+.search-box:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.15)}
+
+/* Table */
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem}
+th{padding:.5rem 1rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;white-space:nowrap}
+tbody tr{background:var(--card);box-shadow:var(--shadow);transition:box-shadow .15s,transform .15s}
+tbody tr:hover{box-shadow:var(--shadow-h);transform:translateY(-1px)}
+td{padding:.85rem 1rem;border:none;vertical-align:top}
+td:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+td:last-child{border-radius:0 var(--radius) var(--radius) 0}
+
+/* Badges */
+.status{display:inline-block;font-size:.76rem;font-weight:600;padding:.25rem .75rem;border-radius:999px;white-space:nowrap}
+.s-live{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
+.s-pilot,.s-draft,.s-partial{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+.s-resist{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+.s-limited{background:#e0e7ff;color:#3730a3;border:1px solid #c7d2fe}
+.s-unknown{background:#f1f5f9;color:var(--muted);border:1px solid var(--border)}
+.cat-tag{display:inline-block;font-size:.65rem;font-weight:600;text-transform:uppercase;padding:.15rem .5rem;border-radius:4px;background:#e2e8f0;color:#475569}
+.cat-state{background:#dbeafe;color:#3730a3}
+
+/* Source panel */
+.source-btn{background:none;border:1px solid #cbd5e1;border-radius:6px;padding:.25rem .7rem;font-size:.75rem;cursor:pointer;color:var(--primary);transition:.15s}
+.source-btn:hover{background:#eef2ff;border-color:#a5b4fc}
+.source-panel{display:none;margin-top:.6rem;padding:.8rem 1rem;background:#f8fafc;border-radius:8px;border-left:3px solid var(--primary);font-size:.82rem}
+.source-panel.open{display:block}
+.source-panel ul{list-style:none;padding:0;margin:0}
+.source-panel li{padding:.3rem 0;border-bottom:1px solid #f1f5f9}
+.source-panel li::before{content:"• ";color:var(--primary)}
+
+/* University buttons */
+.univ-section{display:flex;flex-direction:column;gap:.3rem}
+.univ-type-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.univ-type-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:6px;padding:.25rem .6rem;font-size:.72rem;cursor:pointer;color:#334155;transition:.15s;font-weight:500}
+.univ-type-btn:hover{background:#e2e8f0}
+.univ-type-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.univ-type-btn .count{font-size:.65rem;font-weight:600;background:rgba(0,0,0,.1);border-radius:999px;padding:0 .35rem;margin-left:.2rem}
+.univ-type-btn.active .count{background:rgba(255,255,255,.2)}
+.univ-list-panel{display:none;margin-top:.2rem}
+.univ-list-panel.open{display:block}
+.univ-list-panel ol{margin:0;padding-left:1.3rem;font-size:.78rem;color:#334155}
+.univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
+.univ-list-panel ol li:last-child{border-bottom:none}
+.summary-cell{font-size:.82rem;color:#334155;max-width:380px}
+
+/* Footer */
+.footer{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.8rem}
+
+/* Responsive */
+@media(max-width:780px){
+  .hero h1{font-size:1.6rem}
+  .stat-card{flex:1 0 100px;max-width:140px}
+  th,td{padding:.6rem .5rem;font-size:.8rem}
+  .summary-cell{max-width:200px;font-size:.75rem}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>FYUGP Dashboard</h1>
+  <p>Four-Year Undergraduate Programme adoption status across all 28 States &amp; 8 Union Territories of India</p>
+</section>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<div class="container">
+  <div class="filters">
+    <label>Status:</label>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Live / Fully Adopted">🟢 Live</button>
+    <button class="filter-btn" data-filter="Pilot">🟡 Pilot</button>
+    <button class="filter-btn" data-filter="Resisting">🔴 Resisting</button>
+    <button class="filter-btn" data-filter="Limited">🔵 Limited</button>
+    <button class="filter-btn" data-filter="Unknown">⚪ Unknown</button>
+  </div>
+  <div class="filters" style="margin-top:-.4rem">
+    <label>Type:</label>
+    <button class="filter-btn active cat-toggle" data-cat="all">All</button>
+    <button class="filter-btn cat-toggle" data-cat="State">States</button>
+    <button class="filter-btn cat-toggle" data-cat="Union Territory">UTs</button>
+    <input class="search-box" id="search" placeholder="🔍 Search state, university, or keyword…">
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:2rem;text-align:center">#</th>
+        <th>State / UT</th>
+        <th>Status</th>
+        <th>Summary</th>
+        <th>Universities</th>
+        <th>Year</th>
+        <th>Sources</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Data compiled from government portals, news articles, and official state HE council publications.<br>
+  Article links provided where available. Verify against official sources for latest updates.<br><br>
+  <span id="lastUpdated"></span>
+</div>
+
+<script src="data.js"></script>
+<script>
+let allData = FYUGP_DATA.filter(d => d.state_name !== '__NATIONAL__');
+let currentCategory = 'all';
+
+// ── Status helpers ──
+function statusInfo(status) {
+  const s = (status || '').toLowerCase();
+  if (s.includes('live') || s.includes('fully'))   return {label:'State-wide adopted', cls:'s-live'};
+  if (s.includes('pilot') || s.includes('phased'))  return {label:'Phased rollout',    cls:'s-pilot'};
+  if (s.includes('draft') || s.includes('proposed'))return {label:'Draft / Proposed',   cls:'s-draft'};
+  if (s.includes('partial'))                        return {label:'Partial',            cls:'s-partial'};
+  if (s.includes('resist') || s.includes('not adopt'))return {label:'Actively opposed', cls:'s-resist'};
+  if (s.includes('limited') || s.includes('select'))return {label:'Central Univ. only', cls:'s-limited'};
+  return {label:'No data', cls:'s-unknown'};
+}
+
+// ── Stats ──
+function renderStats() {
+  const count = (re) => allData.filter(d => re.test((d.implementation_status||'').toLowerCase())).length;
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
+    <div class="stat-card"><div class="num">${count(/live|fully/)}</div><div class="lbl">🟢 Live</div></div>
+    <div class="stat-card"><div class="num">${count(/pilot|phased/)}</div><div class="lbl">🟡 Pilot</div></div>
+    <div class="stat-card"><div class="num">${count(/resist|not adopt/)}</div><div class="lbl">🔴 Resisting</div></div>
+    <div class="stat-card"><div class="num">${count(/limited|select/)}</div><div class="lbl">🔵 Limited</div></div>
+    <div class="stat-card"><div class="num">${count(/unknown/)}</div><div class="lbl">⚪ Unknown</div></div>
+  `;
+}
+
+// ── Table ──
+function renderTable(data) {
+  const tbody = document.getElementById('tableBody');
+  if (!data.length) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#94a3b8">No matching records.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = data.map((d, i) => {
+    const si = statusInfo(d.implementation_status);
+    const catCls = d.category === 'Union Territory' ? '' : 'cat-state';
+    const univs = d.universities || [];
+
+    // Group universities by type
+    const groups = {};
+    univs.forEach(u => { const t = u.type||'Other'; (groups[t] = groups[t] || []).push(u); });
+    const typeOrder = ['State University','Central University','Private University','Deemed University','Other'];
+    const sortedTypes = Object.keys(groups).sort((a,b) => {
+      const ia = typeOrder.indexOf(a), ib = typeOrder.indexOf(b);
+      return (ia===-1?99:ia) - (ib===-1?99:ib);
+    });
+
+    let univHtml;
+    if (univs.length) {
+      const sid = d.state_name.replace(/[\s&]+/g,'_');
+      univHtml = '<div class="univ-section"><div class="univ-type-row">';
+      sortedTypes.forEach(t => {
+        const label = t.replace(' University',' Universities');
+        univHtml += `<button class="univ-type-btn" onclick="toggleUniv('${sid}','${t}')">${label} <span class="count">${groups[t].length}</span></button>`;
+      });
+      univHtml += '</div>';
+      sortedTypes.forEach(t => {
+        groups[t].sort((a,b) => (a.year||'9999').localeCompare(b.year||'9999') || a.name.localeCompare(b.name));
+        univHtml += `<div class="univ-list-panel" id="ul_${sid}_${t}"><ol>`;
+        groups[t].forEach(u => {
+          univHtml += `<li>${u.name}${u.year ? ` <span style="color:#64748b;font-size:.72rem">(${u.year})</span>` : ''}</li>`;
+        });
+        univHtml += '</ol></div>';
+      });
+      univHtml += '</div>';
+    } else {
+      univHtml = '<span style="color:#94a3b8;font-size:.75rem">—</span>';
+    }
+
+    const srcId = d.state_name.replace(/\s+/g,'_');
+    const articles = d.articles || [];
+    let srcHtml = `<button class="source-btn" onclick="toggleSrc('${srcId}')">📄 Sources${articles.length ? ` (${articles.length})` : ''}</button>`;
+    srcHtml += `<div class="source-panel" id="src_${srcId}">`;
+    if (articles.length) {
+      srcHtml += '<div style="font-size:.7rem;text-transform:uppercase;color:#64748b;margin-bottom:.3rem">📰 News Articles</div><ul>';
+      articles.forEach(a => {
+        if (a.url && a.url.length > 15) {
+          srcHtml += `<li><a href="${a.url}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''}</span></li>`;
+        } else {
+          const q = encodeURIComponent(`"${a.title}" ${a.source}`);
+          srcHtml += `<li><a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener" style="font-weight:600">${a.title}</a><br><span style="font-size:.72rem;color:#64748b">${a.source} · ${a.date||''} · 🔍 Search</span></li>`;
+        }
+      });
+      srcHtml += '</ul>';
+    } else {
+      srcHtml += '<div style="color:#94a3b8;font-style:italic;font-size:.78rem">No articles recorded.</div>';
+    }
+    if (PORTALS[d.state_name]) {
+      srcHtml += `<div style="margin-top:.6rem;border-top:1px solid #e2e8f0;padding-top:.5rem"><div style="font-size:.7rem;text-transform:uppercase;color:#64748b">🔗 Official Portal</div><a href="${PORTALS[d.state_name].url}" target="_blank" rel="noopener" style="font-size:.82rem">${PORTALS[d.state_name].label} →</a></div>`;
+    }
+    srcHtml += '</div>';
+
+    return `<tr>
+      <td style="text-align:center;font-weight:600;color:#64748b">${i+1}</td>
+      <td><strong>${d.state_name}</strong><br><span class="cat-tag ${catCls}">${d.category||'State'}</span>${d.notified_year ? `<br><span style="font-size:.7rem;color:#94a3b8">Notified: ${d.notified_year}</span>` : ''}</td>
+      <td><span class="status ${si.cls}">${si.label}</span></td>
+      <td class="summary-cell">${d.summary || d.notes || ''}</td>
+      <td>${univHtml}</td>
+      <td style="white-space:nowrap">${d.notified_year || '—'}</td>
+      <td>${srcHtml}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Toggles ──
+function toggleSrc(id) {
+  const panel = document.getElementById('src_' + id);
+  if (!panel) return;
+  const open = panel.classList.contains('open');
+  document.querySelectorAll('.source-panel.open').forEach(p => p.classList.remove('open'));
+  if (!open) panel.classList.add('open');
+}
+
+function toggleUniv(sid, type) {
+  const panel = document.getElementById('ul_' + sid + '_' + type);
+  if (!panel) return;
+  const open = panel.classList.contains('open');
+  document.querySelectorAll('.univ-list-panel.open').forEach(p => { if (p.id.startsWith('ul_' + sid + '_')) p.classList.remove('open'); });
+  document.querySelectorAll('.univ-type-btn.active').forEach(b => { if (b.getAttribute('onclick').includes("'" + sid + "'")) b.classList.remove('active'); });
+  if (!open) { panel.classList.add('open'); panel.previousElementSibling.querySelector(`[onclick*="${type}"]`)?.classList.add('active'); }
+}
+
+// ── Filters ──
+document.querySelectorAll('.filter-btn:not(.cat-toggle)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn:not(.cat-toggle)').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.cat-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-toggle').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCategory = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', applyFilters);
+
+function applyFilters() {
+  const active = document.querySelector('.filter-btn:not(.cat-toggle).active');
+  const filter = active ? active.dataset.filter : 'all';
+  const q = document.getElementById('search').value.trim().toLowerCase();
+
+  let filtered = allData;
+
+  if (currentCategory !== 'all') {
+    filtered = filtered.filter(d => d.category === currentCategory);
+  }
+
+  if (filter !== 'all') {
+    const checks = {
+      'Pilot':     s => /pilot|phased/.test(s.toLowerCase()),
+      'Resisting': s => /resist|not adopt/.test(s.toLowerCase()),
+      'Limited':   s => /limited|select/.test(s.toLowerCase()),
+      'Unknown':   s => /unknown/.test(s.toLowerCase()),
+    };
+    const checker = checks[filter] || (s => s.toLowerCase().includes(filter.toLowerCase()));
+    filtered = filtered.filter(d => checker(d.implementation_status || ''));
+  }
+
+  if (q) {
+    filtered = filtered.filter(d =>
+      d.state_name.toLowerCase().includes(q) ||
+      (d.summary || '').toLowerCase().includes(q) ||
+      (d.universities || []).some(u => (u.name || '').toLowerCase().includes(q))
+    );
+  }
+
+  renderTable(filtered);
+}
+
+// ── Init ──
+renderStats();
+renderTable(allData);
+
+// Footer date
+const dates = allData.map(d => d.last_updated).filter(Boolean).sort();
+document.getElementById('lastUpdated').textContent = dates.length
+  ? `Last updated: ${dates[dates.length - 1]}`
+  : 'Last updated: 2025';
+</script>
+</body>
+</html>
