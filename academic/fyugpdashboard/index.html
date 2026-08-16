@@ -100,6 +100,8 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
 .summary-cell{font-size:.82rem;color:#334155;line-height:1.55;display:block;width:100%}
+.detail-heading{font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#64748b;margin-bottom:.35rem}
+.detail-sources{margin-top:.9rem;padding-top:.75rem;border-top:1px solid #e2e8f0}
 
 
 /* Footer */
@@ -156,10 +158,9 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
           <th style="width:3rem;text-align:center" data-sort="num">#</th>
           <th style="width:12rem" data-sort="state">State / UT</th>
           <th style="width:11rem" data-sort="status">Status</th>
-          <th style="min-width:24rem">Summary</th>
+          <th style="min-width:34rem">Brief Details</th>
           <th style="width:10rem">Universities</th>
           <th style="width:5rem" data-sort="year">Year</th>
-          <th style="width:10rem">Sources</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -259,7 +260,7 @@ function renderSources(d) {
   const articles = d.articles || [];
   const hasSources = articles.length > 0;
 
-  let html = `<button class="source-btn${hasSources ? ' has-sources' : ''}" onclick="toggleSrc('${srcId}')">📄 Sources${articles.length ? ` (${articles.length})` : ''}</button>`;
+  let html = `<div class="detail-sources"><div class="detail-heading">Sources</div><button class="source-btn${hasSources ? ' has-sources' : ''}" onclick="toggleSrc('${srcId}')">📄 Sources${articles.length ? ` (${articles.length})` : ''}</button>`;
   html += `<div class="source-panel" id="src_${srcId}">`;
 
   if (articles.length) {
@@ -280,21 +281,21 @@ function renderSources(d) {
   if (PORTALS[d.state_name]) {
     html += `<div style="margin-top:.6rem;border-top:1px solid #e2e8f0;padding-top:.5rem"><div style="font-size:.7rem;text-transform:uppercase;color:#64748b">🔗 Official Portal</div><a href="${PORTALS[d.state_name].url}" target="_blank" rel="noopener" style="font-size:.82rem">${PORTALS[d.state_name].label} →</a></div>`;
   }
-  html += '</div>';
+  html += '</div></div>';
   return html;
 }
 
 // ── Summary with expand/collapse ──
 function renderSummary(text) {
-  if (!text) return '';
-  return `<div class="summary-cell">${text}</div>`;
+  if (!text) return '<div class="summary-cell"><div class="detail-heading">Summary</div><div style="color:#94a3b8;font-style:italic;">No summary available.</div></div>';
+  return `<div class="summary-cell"><div class="detail-heading">Summary</div><div>${text}</div></div>`;
 }
 
 // ── Desktop Table ──
 function renderTable(data) {
   const tbody = document.getElementById('tableBody');
   if (!data.length) {
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#94a3b8">No matching records.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#94a3b8">No matching records.</td></tr>';
     return;
   }
   tbody.innerHTML = data.map((d, i) => {
