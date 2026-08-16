@@ -533,7 +533,15 @@ const FYUGP_DATA = [
         "desc": "Statewide FYUGP rollout across all universities"
       }
     ],
-    "articles": []
+    "articles": [
+      {
+        "title": "Four-year UG , year-long PG courses at Gujarat University from next year - The Times of India",
+        "source": "The Times of India",
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOaFZHM3dWb3p6WWpwQ2VwWTI0d0dvUTVrQTYxUVQzOTE0LTFBX1hoaHN2YWlxYkhBdXlHVXBZRXJUd0wyS1ZXNjNpbXlkaFlZZmZUVE1TRzFIQVpPTmhadGFNQzNkUlp3YTFQTmEwcDAwcHNNQlF1bWktRzd0c3NUbThQY1BSaFp1NGJhbGJQakhlcVRoZnRCRFNmSmdiQWNoakEwSFFYelRDNGFIbWR0WmhJNERCX3dmUE92VUEtREY0TGllN3ktcC1BeFVCdkR6ZS1zOFVFZnl1R21Xanc?oc=5",
+        "date": "Sun, 08 Jan 2023 08:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      }
+    ]
   },
   {
     "id": 8,
