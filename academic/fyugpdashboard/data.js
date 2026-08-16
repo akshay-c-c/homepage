@@ -220,6 +220,13 @@ const FYUGP_DATA = [
         "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPcnVjZ1ZOZU5WNHJNRUJLeEVFdmhWeDAwaHY3UVV2RGw4NHM0Qm5WcjJaT1k3bWdNUXFFdHhQNkNrbnNPbXNqNW9Gcm01VWlVNjA4VE1FOFNRbFotT0Z0TmJwckpBZktBWENSdEpaeTZ0cUh3RVo5cWMtSU1BQVFMV1A3am9meFU4M1YySTNPcmd4T0FDQnM4UjNYMWhmVFEyMC15LThReXE0Y2plRG92WXBHLW95bzBQN0lxUkZXaGhnOHo5RFM0dg?oc=5",
         "date": "Wed, 05 May 2021 07:00:00 GMT",
         "snippet": "News Article (Other)"
+      },
+      {
+        "title": "KL University launches online portal to offer UG,PG degrees in multiple domains - Shiksha",
+        "source": "Shiksha",
+        "url": "https://www.shiksha.com",
+        "date": "Wed, 05 May 2021 07:00:00 GMT",
+        "snippet": "News Article (Other)"
       }
     ]
   },
@@ -325,9 +332,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Reputable)"
       },
       {
+        "title": "Himanta Biswa Sarma launches 4-year degree programme in colleges and universities under NEP 2020 - India Today NE",
+        "source": "India Today NE",
+        "url": "https://www.indiatodayne.in",
+        "date": "Sat, 03 Jun 2023 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
         "title": "4-year degree courses under NEP-2020 kickstart in Assam - The Sentinel - of this Land, for its People",
         "source": "The Sentinel - of this Land, for its People",
         "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWlc2cTVkLWZKcWZCMXlJZkxYVm1CNEU0R2xRXzlnbC01bGN2bE53QUY4SFdJTXlKOVE3Tk9wN2MzVU1qeXdnMU5lN0tZSkFPcm9vS01JSFV2d0tjbjR4RDFISEw1WXhNaEJ1NkRoVXF5VnVVWWJSdGFIcHo3SDZMMWRCZDZ0NVpkR0dDbGxJLUFtWmdXX2ZLcFlMT3VPbHcteDl5MTI3ZjPSAbYBQVVfeXFMTUw5LTAyQkIzUWR6a3d3eG5GM1RUak5TYU5McUgyN2xQQUFia3RVNDlSaXVjT3Q1MVd0U0RuWlpISkprcExYVHhBeEJyODY2UGNiOHFKdk84NHpYbzZaekpWOXpmeVJlY25jU3Uwa1VkY0lSbkx3TWJRdF9nRWVUU05JUjViWUJWWm1sWVh3a0pCNlRNUWhrcTJqbHdlTTFtb0FfeGtMUmNNS1h6R3duWnBHNzdVekE?oc=5",
+        "date": "Tue, 01 Aug 2023 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "4-year degree courses under NEP-2020 kickstart in Assam - The Sentinel - of this Land, for its People",
+        "source": "The Sentinel - of this Land, for its People",
+        "url": "https://www.sentinelassam.com",
         "date": "Tue, 01 Aug 2023 07:00:00 GMT",
         "snippet": "News Article (Other)"
       },
@@ -339,9 +360,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Reputable)"
       },
       {
+        "title": "NEP hits roadblock in Assam as colleges grapple with infrastructure &amp; faculty shortages - The Assam Tribune",
+        "source": "The Assam Tribune",
+        "url": "https://assamtribune.com",
+        "date": "Tue, 09 Jun 2026 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
         "title": "Assam: IIT Guwahati launches 4-year BS program in Biomedical Science and Engineering - NE NOW",
         "source": "NE NOW",
         "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQbnc0ejk3aTB0RHNseHk5SEgtQUg4b2FJNXRYRlExVzdCRjRONGtodmlfZDI0c19XaW9VdGNQNlhLVXAwWm5ub1MxSGZwd0pFSGRnX2ZyR04zQXVhRC1ndEF2MGNGanFZX2pZWk9yUkxXQVRlTzREOElhLVlLNExmQmpVS3o5MDRGcDBSOW9YSk4xZFBxcWkyNU5adURoeF9HeVhmREVVUXM2SVRRaXl3SlFWZ2twTzc5RVVybHQwczBEV2Nnd3fSAcYBQVVfeXFMTVNFbTBsSkgzWVl3dnRHaTVoejZwOGxTYl9rQTFDeXM1M0xRaWE2OW1Yd3FmdW1hbFpvb29lYkNCblR6U2lEbExoakhrc2o3clFLMFN1WmVvNlQtek14VzA3ZGZDNl9iQWR5bWJ5amxCS2c5MklUR2J1UzJkbTVfVDRZUDN4TlZoMThQX05oSHctWFcwRy1td1R2blV6RC1DQW81a04xUTlsZ2Q3Y0EzV0NFRVJmWkV5Y1BSREJ6eHRDM0M0ZUx3?oc=5",
+        "date": "Tue, 22 Apr 2025 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "Assam: IIT Guwahati launches 4-year BS program in Biomedical Science and Engineering - NE NOW",
+        "source": "NE NOW",
+        "url": "https://nenow.in",
         "date": "Tue, 22 Apr 2025 07:00:00 GMT",
         "snippet": "News Article (Other)"
       },
@@ -499,6 +534,13 @@ const FYUGP_DATA = [
         "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOX3hwaENhLWJ4U2tOQkU1TVlyRXp6b1hYNV8yeGRzMFFGR1V2SW55TDZ3WEZHZWNyNXVCZHo4Y1VmT3dIN3lMQkFfbThXNUJDdzkyWmMwWGN5MVFCWXdDdVA2X0ZvWjRYTUZsTk54MDV1VC1CMUtTSkprZDA5Ui0tTEV0c3puWUQzbzU4OXU0a1h6M183Qmw1NW82NnhyTTdCY1FyRWs3QUstS1Y1UmswWEFET2RLUDRpY20zSnVUYUtjV2E00gHKAUFVX3lxTE5IX3lsY0k1ZlRTNXZjSjRjamFFMkl5ZE9OUzNRSGdOZGFkcmIwbVY5Tlh5cmRuWnpZcFVWUWpKT05jRmxZenVpQlJrOWhwcGlqRVhKWjhaVmx4aEpWeElVUW5vT3dGUHBvUEp6cURBV2hxYWk5eXZNczJkemZMRFYtSjVmbWRtS1pVakUycWRNN0ZZWGtxMHo2akRyaDAzUWdMYUVXa2ZLWmE5dWF1UmRMdFZDdGZuZWJJYkJTVHFmMi1tQktIaUNlNWc?oc=5",
         "date": "Thu, 27 Jun 2024 07:00:00 GMT",
         "snippet": "News Article (Other)"
+      },
+      {
+        "title": "NEP 2020 to be implemented across all universities in CG from 2024-25 session - thehitavada.com",
+        "source": "thehitavada.com",
+        "url": "https://www.thehitavada.com",
+        "date": "Thu, 27 Jun 2024 07:00:00 GMT",
+        "snippet": "News Article (Other)"
       }
     ]
   },
@@ -522,7 +564,7 @@ const FYUGP_DATA = [
     "id": 29,
     "state_name": "Delhi",
     "category": "Union Territory",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "Awaiting FYUGP Adoption",
     "summary": "DU (pilot 2022, full 2023), JNU, and Jamia all adopted. Multiple entry/exit operational. Serves as national template for FYUGP.",
     "notified_year": "2022",
     "notified_semester": "Academic Year 2022-23",
@@ -603,9 +645,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Other)"
       },
       {
+        "title": "Four-Year Degree Model To Be Launched In Delhi University\u2019s SOL And NCWEB - ETV Bharat",
+        "source": "ETV Bharat",
+        "url": "https://www.etvbharat.com",
+        "date": "Mon, 19 May 2025 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
         "title": "Jamia Millia Islamia Launches New UG Programs In German And Japanese Studies - NDTV",
         "source": "NDTV",
         "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeWJuSmtfZ1hpUTRHU2FLSXE4aXE3enRnMUVPY0ZCOW1BLUJDakFHSk9GSnRncXhXRlF6ODlJSzN1R3B0Q3BuaDZwdHZpd1FrMVpWcXFjbEN6NVFmdktMLVZ3SFBkVTd4ME40S3VXV2VJQXVQcGtTUFJPbjN0QTlCQktGY2ZTMW5lVVc5a3RNczVPTnU4S29wMkhYU085bFNEOHlTcmtzYjFGVmRlaEVMMURuNkFHUdIBvgFBVV95cUxOWmppQUEtMTB6bDAzNG96MHlnT180aUxpLU4tRG9xenRjX1ZyYVFFdFhYTjB6YmxodkIxVHJMSnhveG41M0EwVS00R3EwbE9peTJyLVIzZTZQSHYzSmJYM1VrXzRQNWVkbU8wRk1jZkdMdVFQZHBuOWxXdDBOYjJ2NWJNZUNDWWI4eUMwLUNKc3YwNUxld0MxY2xFQko1RUJmXzBWWWlEWHFRQm1VWVhCanM1bTRYQVdKWjNkRHRn?oc=5",
+        "date": "Mon, 25 Aug 2025 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "Jamia Millia Islamia Launches New UG Programs In German And Japanese Studies - NDTV",
+        "source": "NDTV",
+        "url": "https://www.ndtv.com",
         "date": "Mon, 25 Aug 2025 07:00:00 GMT",
         "snippet": "News Article (Reputable)"
       },
@@ -860,6 +916,13 @@ const FYUGP_DATA = [
         "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQ2g1d0k2ajYzY1R6MXlRRFd4RElVQlhTamlQZGJCaTFkMmN5U0RSOTZyNFhhTmRnWU1teTRUT2Rja055M3Rpb1VPcC14bmlDSUJIdEJsZk5WY0ZkV1pZTC1mX253bXAwM25mU2szdFMzSWx6NzBsY1NyWVptQk80dUtlY3RFOVBESUE?oc=5",
         "date": "Sat, 15 Mar 2025 07:00:00 GMT",
         "snippet": "News Article (Other)"
+      },
+      {
+        "title": "J&amp;K Implements NEP-2020 in All Government Degree Colleges - News On AIR",
+        "source": "News On AIR",
+        "url": "https://newsonair.gov.in",
+        "date": "Sat, 15 Mar 2025 07:00:00 GMT",
+        "snippet": "News Article (Other)"
       }
     ]
   },
@@ -905,7 +968,7 @@ const FYUGP_DATA = [
     "id": 11,
     "state_name": "Karnataka",
     "category": "State",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "Awaiting FYUGP Adoption",
     "summary": "First mover. Bangalore, Mysore, Mangalore universities adopted 2021. Mandated across all 40+ state universities by 2024 with major/minor curriculum.",
     "notified_year": "2021",
     "notified_semester": "Academic Year 2021-22",
@@ -947,6 +1010,13 @@ const FYUGP_DATA = [
         "title": "About 500 sacked by Bangalore University; Union blames NEP implementation - HR Katha",
         "source": "HR Katha",
         "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSTBSTEs3bjZ1bVdyeU1PX3ROT0h4V2pLdjdHM2dfT3BpWG56dG5RMmJXcFFGWUN1TXRDblA0RnVITkRSS09ndEM4MWhXVUFlNzRTMVpOYTE4M1dnWVkwVmplMy1KdzkwNWpKNlpKODNSOU5DSEdDSjZNcnZRTEhacEl0SVdlQlRtazlaX0hQQ2lwTjBXQk9IbmlpYmZ4NS0zZUhtRw?oc=5",
+        "date": "Mon, 11 Oct 2021 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "About 500 sacked by Bangalore University; Union blames NEP implementation - HR Katha",
+        "source": "HR Katha",
+        "url": "https://www.hrkatha.com",
         "date": "Mon, 11 Oct 2021 07:00:00 GMT",
         "snippet": "News Article (Other)"
       },
@@ -1064,6 +1134,13 @@ const FYUGP_DATA = [
         "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNb19MaVdqa2s2T1NhYWc4TXN3U1NQck5UYnBIdGVrbkdYMW9lY2lfbzVtRlRQLVhQR0p5Y1hOREJrVTI5SVBJbm01U291UmZVVy1DVURvZWN4T0xrYVlaQmZRZ1V3QTVHN2NvZkozUVBBVzJzVEVYMlhCdWktQ1JqUzlZWGZpX2VmZENic3JNdHJDTDE1MDYtR1ZVWTBORkprSnMzWHhDWTVMR3o5aTZPMHFNb2ltWHNlX0ZwNTdqYldvNXVMbHhv?oc=5",
         "date": "Tue, 05 Nov 2024 08:00:00 GMT",
         "snippet": "Government Order"
+      },
+      {
+        "title": "Prof. Deskyong Namgyal visits GDC Zansksar, discusses NEP-2020 implementation, its impact on Ladakh colleges. - Administration of Union Territory of Ladakh",
+        "source": "Administration of Union Territory of Ladakh",
+        "url": "https://ladakh.gov.in",
+        "date": "Tue, 05 Nov 2024 08:00:00 GMT",
+        "snippet": "Government Order"
       }
     ]
   },
@@ -1135,7 +1212,7 @@ const FYUGP_DATA = [
     "id": 14,
     "state_name": "Maharashtra",
     "category": "State",
-    "implementation_status": "Awaiting FYUGP Adoption",
+    "implementation_status": "FYUGP Implementation \u2014 Select Colleges",
     "summary": "Mumbai, SPPU Pune, Shivaji, and Nagpur universities adopted 2023-24. HE Department GR mandating FYUGP issued. Some colleges raised infrastructure concerns.",
     "notified_year": "2023",
     "notified_semester": "Phased from 2023",
@@ -1182,6 +1259,13 @@ const FYUGP_DATA = [
         "title": "MU Introduces Four-Year UG Courses For Non-Autonomous Colleges - Free Press Journal",
         "source": "Free Press Journal",
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNcGhIZ2g4RXBNbVJBazFYLVJnOUI1UHFYbWJOWWtzLUxBcWt4YVhYWjhueUtFamNXVGczQkNZak1hcjNpZmpBbEhON0sxYllBUHp3VjVhcEVUenR5UnVGRENhYXU4aHNvMXh4RGJyYVpaX2tiTVYyZmc3ZVR5MkNRZnhaYkVreVljZmIxT2FVTGx4MV9LZktBSG5pVFdjNjJwSEl2ZzVnWdIBrAFBVV95cUxNMW92ejRMS2Q5MG1RUFJvdjg0Yl9hR0N5YkJGNXNzRjZER1A5OGNGRjBpcWRlMl9WR1JualFSMmZTN3dNdUJDdUhkX2ctVGdmYmp4SzBVLTFzcGJlNHR2a1hQQ041cktrLUROeEQ3T3JUS1FwMTRKcEdHYXU3a241TWtwci0yNF9WQzJSWDBsREV4R3hHMHNHeW1PVVNEWi1ockFqYjZubF9obkVK?oc=5",
+        "date": "Fri, 03 Nov 2023 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "MU Introduces Four-Year UG Courses For Non-Autonomous Colleges - Free Press Journal",
+        "source": "Free Press Journal",
+        "url": "https://www.freepressjournal.in",
         "date": "Fri, 03 Nov 2023 07:00:00 GMT",
         "snippet": "News Article (Reputable)"
       },
@@ -1239,7 +1323,7 @@ const FYUGP_DATA = [
     "id": 16,
     "state_name": "Meghalaya",
     "category": "State",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "Awaiting FYUGP Adoption",
     "summary": "NEHU (central) adopted 2023. State-level policy being formulated. Most colleges are affiliated to NEHU.",
     "notified_year": "2023",
     "notified_semester": "Limited from 2023",
@@ -1300,6 +1384,13 @@ const FYUGP_DATA = [
         "source": "nenews.in",
         "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWktBM3hhTVVxbTJmdllndzR4VmN2QkNMSFJoWjVkbFhkeXpWMWtreVN2Vnh2UG5WUW56dlk4ajdYX1lmaVQ2YWFOZnJnZHVZa1FhYUpaUENVUXdGNldVMHRkU3UteTR4alphLWdwQnVoTnhPUlJaWWJFNUMzTVpYaXNCdEFNWmZLRC1jZnZXWnFOc2hKQ2s5ZEQ0eEMtX1ow?oc=5",
         "date": "Tue, 12 Sep 2023 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "NEP 2020: VPP opposes implementation, says colleges not ready yet - Highland Post",
+        "source": "Highland Post",
+        "url": "https://highlandpost.com",
+        "date": "Tue, 25 Jul 2023 07:00:00 GMT",
         "snippet": "News Article (Other)"
       }
     ]
@@ -1614,7 +1705,7 @@ const FYUGP_DATA = [
     "id": 22,
     "state_name": "Sikkim",
     "category": "State",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "FYUGP Implementation",
     "summary": "Sikkim University (central) adopted 2023. Sikkim Manipal (private) partial adoption in 2024. State policy under development.",
     "notified_year": "2023",
     "notified_semester": "Limited from 2023",
@@ -1655,9 +1746,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Other)"
       },
       {
+        "title": "Sikkim University in forefront of NEP implementation, says VC - Sikkimexpress",
+        "source": "Sikkimexpress",
+        "url": "https://sikkimexpress.com",
+        "date": "Sat, 22 Jul 2023 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
         "title": "Sikkim University releases its undergraduate programme as per NEP 2020 - Sikkimexpress",
         "source": "Sikkimexpress",
         "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbnNXWjNKeU1BaXh0MzhCUnFsMGd3WDZPWTJZd043NGNnYXJGNFQ0NVc4TnFLZ3NWZnJrM2g1VE5TRGFfanVZTlYwQTlYZTFUMEstTTh3SWxCcWlNR1BOVFgxV0QtaHJzRVNTdjh6Zi1wUXl6T1MyOG9BWGJVdDVQYm5wdC15aWlBcURncHFCRDBYUzF0a3YzM01fSDB2U2hWdi1jZUVYUE16Z1VCQ1FtZ1pWY1VqZw?oc=5",
+        "date": "Tue, 24 Jun 2025 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "Sikkim University releases its undergraduate programme as per NEP 2020 - Sikkimexpress",
+        "source": "Sikkimexpress",
+        "url": "https://www.sikkimexpress.com",
         "date": "Tue, 24 Jun 2025 07:00:00 GMT",
         "snippet": "News Article (Other)"
       }
@@ -1723,9 +1828,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Reputable)"
       },
       {
+        "title": "\u2018Won\u2019t Allow 3-Language Formula\u2019: TN Parties\u2019 United Front on NEP - The Quint",
+        "source": "The Quint",
+        "url": "https://www.thequint.com",
+        "date": "Mon, 03 Aug 2020 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
         "title": "Why Tamil Nadu\u2019s DMK govt is opposed to National Education Policy? - INSIGHTS IAS",
         "source": "INSIGHTS IAS",
         "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQdTJUSk81LTZoN0cybjV2a0xTWktWcnRfcWVyTmRaNDhmZE5jeDNyaUk2NU5Pb1Jack85NFdDSXBhNUliVkMzMVVjUXNRZ1JycXZNX1JBaGFJczR5d0VKbzVSYnAzOVdwV0ZzaGpVQnlvYml3d0RRWlZiRHcxdlU5MGZzZi1ycHR1MEtuRWJmYTFzd04yTVdEVTNfekI5cXQ2OE9HNDJRYkx4YWk5?oc=5",
+        "date": "Mon, 08 Nov 2021 08:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "Why Tamil Nadu\u2019s DMK govt is opposed to National Education Policy? - INSIGHTS IAS",
+        "source": "INSIGHTS IAS",
+        "url": "https://www.insightsonindia.com",
         "date": "Mon, 08 Nov 2021 08:00:00 GMT",
         "snippet": "News Article (Other)"
       },
@@ -1737,9 +1856,30 @@ const FYUGP_DATA = [
         "snippet": "News Article (Reputable)"
       },
       {
+        "title": "MK Stalin\u2019s DMK government opens with a salvo against NEP - Moneycontrol.com",
+        "source": "Moneycontrol.com",
+        "url": "https://www.moneycontrol.com",
+        "date": "Mon, 24 May 2021 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "With its Strident NEP Opposition, Stalin's DMK Asserts Dravidian Credentials - NewsClick",
+        "source": "NewsClick",
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQYzJQMEpuU29sNDFqbFB2RFVtLV9JdDRSaGdmM0RORElzSjRqV2lVNkxDcXJvZjdIcGowM3RtbzNpT25lS1lCNkRTSXRVRk9mdHQtMzRDZXh0TDFHZE94VDU0RXFIR2hNOFczNnJaZnF6OHM1eHd5SVREbmUzWm91SlFBM21uVTNXMDBUM3FCdEIzdGVjeTZrRF930gGfAUFVX3lxTE5yZklTNG02QU8xMi1CR0JqOGtFZnNZTnZFUXdPMGl4MnNwTFI5TlZZOERhOWQ0UXNQWjJNbFYtUXVpd0hhUUczRm96Q1cwNWN6ZEVaajdaY05ZVWRpbGtnQTVPRlFQSGY0UWlPSmFqUm9kc1JmVUJPeWUydGRYMVcxWllOMlh5bGpTb3JUeFd3a0RtTldYT0ZHZVVTcFBVQQ?oc=5",
+        "date": "Sat, 12 Jun 2021 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
         "title": "Leading Tamil Educationist Urges TN CM Stalin To Implement National Education Policy In The State - Swarajya",
         "source": "Swarajya",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQbDZrakIyUm1KYUlfcnhkQ1VKWWoycjNmMHh3SzhJOHpYOHE3OWFFeTQzQm4wcjl1Ti0teGVpR25iLUt2aG9lZV9kYkd4ZDRGOFppaXRMN0lSSXNJT3V1WW1hRDRQcDhZR1Fqd3RkOWhGYzNacVJYMEZkOXRldk85SWxtVFZmSmVLZkNZd0ZSUnFBRWw3aW5IaGwtR1NuQUJhU3lvTW9YYTdHR0U5MUI2Z3Y0bVVjTGZwNlllS1B6aFVFX1ItZGdvNFdsU0bSAdwBQVVfeXFMTVJlNXY2aldOSnJwNDRsd3d2VkZ5ZHFGQlNZZ2VSNTVqTFZPc1ZqS3ZtdjBWb1BHZGs2cGpWSDJDbWlmeVFXT1Zmd2s1czFpQkM4VDRWRmdERjhRTWU1QzZTRDdVMzcyTDhodEdxZV9NMXFkY2hZVUh4cm1SbEJHVV9wTnhLMmhLOXMtdHRnUHJSOUhCQXV0dk5pQXFYU3Rxd1NvUTVwNUQ5dHNiTGJMRmJKc3cyM00tTzBPS2dDOUIwNzV2Rk4tRlRjcVZXMVJkOUl2N0hzRzZ6WHE5RA?oc=5",
+        "date": "Thu, 07 Oct 2021 07:00:00 GMT",
+        "snippet": "News Article (Other)"
+      },
+      {
+        "title": "Leading Tamil Educationist Urges TN CM Stalin To Implement National Education Policy In The State - Swarajya",
+        "source": "Swarajya",
+        "url": "https://swarajyamag.com",
         "date": "Thu, 07 Oct 2021 07:00:00 GMT",
         "snippet": "News Article (Other)"
       }
@@ -1844,7 +1984,7 @@ const FYUGP_DATA = [
     "id": 26,
     "state_name": "Uttar Pradesh",
     "category": "State",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "Awaiting FYUGP Adoption",
     "summary": "BHU, Lucknow, Allahabad, and AMU adopted 2022. Pilot to full statewide by 2024-25. Largest student population \u2014 massive rollout.",
     "notified_year": "2022",
     "notified_semester": "Academic Year 2022-23",
@@ -1896,6 +2036,13 @@ const FYUGP_DATA = [
         "title": "Lucknow University first in India to adopt NEP 2020 in PG curriculum - The Times of India",
         "source": "The Times of India",
         "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQMVl4WF91eTJOcV9ackk3YUVJUnVQc2I4bWs1V0RtcGU4eWZXX0FldS1QZGdsUG5tRDJGMTJKNVpDRVIwaHlkeEJjUDBKYUhOcy1fUzlvblI4elFRNVlRTTM5RV9ya0M1eVU0MHdWbExaMloyZ1BNQ2kwaDloZHhVVnZNNXVGQS1hTXloN3dXMlFjLUptby04X3FOOGhoMk9vZk5Xcng1MnVvemxob1ktLUNwQVhldkxxMTlrNnpwNExyZllCb2ZuT0VXbk0tbTRNcGpkVlp2MnpkUdIB3wFBVV95cUxPNnpMRkxFdGRSREl1YVdybGFfT0YxZ1EybHVWQ3ljWHhRbG5BRE5PdllFbDhBVEhGWXJIY1V2aWFiOUtqMFNXN2swMWtCY1d1cW1CUFU0VXIyYlFINkpwSDZlNFBJYXVQT2tzeTdNYm9hQWdYTjZ2NDVweUdWY0xzLWhIZEdsRkhHMW9ralFadW5FN0J4RFVpQXdPdVZiMVNaSjIzMUFKREsxQWNtUVhlemxMMHoxWEFXTDltT3J3Q2VVQ2UtZUdvNk8yUUtubHJBZlp6b1FCYXNFVzFCa3NZ?oc=5",
+        "date": "Thu, 18 Feb 2021 08:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "Lucknow University first in India to adopt NEP 2020 in PG curriculum - The Times of India",
+        "source": "The Times of India",
+        "url": "https://timesofindia.indiatimes.com",
         "date": "Thu, 18 Feb 2021 08:00:00 GMT",
         "snippet": "News Article (Reputable)"
       },
@@ -1962,7 +2109,7 @@ const FYUGP_DATA = [
     "id": 28,
     "state_name": "West Bengal",
     "category": "State",
-    "implementation_status": "FYUGP Implementation \u2014 Select Universities",
+    "implementation_status": "Awaiting FYUGP Adoption",
     "summary": "Complex NEP relationship. Initially resisted, then implemented 4-year UG honours from 2023-24 in state colleges. Formed task force for NEP rollout. Later formulated own state education policy. [Source: The Hindu, livemint, Outlook India, 2023]",
     "notified_year": "2023",
     "notified_semester": "",
@@ -2029,9 +2176,23 @@ const FYUGP_DATA = [
         "snippet": "News Article (Reputable)"
       },
       {
+        "title": "In jolt to NEP 2020, Bengal forms panel to draft its own education policy - The Federal",
+        "source": "The Federal",
+        "url": "https://thefederal.com",
+        "date": "Sun, 10 Apr 2022 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
         "title": "Many Bengal universities decide to introduce exit option after 3 years in UG level - Telegraph India",
         "source": "Telegraph India",
         "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPVDcyV3dBWThzOVpyOHNpYXQtRVNWbzlpUWJPSnZ0d05PaEtxZ3cydUlncXNzdEltU3VOaWp6VEtFUkluWThXeldiWm5ETElXMWx1bmdPd1ZVdUZjc0IySWdWcmhDQWJZQWhaZHh0azROTXlTUGk5Y2lmYVFoUGlEQ01jNGxUczY1QjRqaFJ4cGdIOWUzTGEtRnc5Y0RMS19Fd2ZrNWFyMDVKeXAyb3R2NzdEdlRyQ3p0UGl3WUhETW1ZNEY0X0tKUkZORFFiUEI0TkpTOE5zX1lUYndJTWRDcUkwONIB6AFBVV95cUxNZXBlUzFBSlk4SFF1YXVCMmZHckgzYWRUZmFLTWI3OEZ4ZUdFUktEajB5cFprNXltcENpOUdjVWpLdHNVdVFDTm9VQ2pNR3VzS2FHQmJSZUJQaGVhR3JmaXdPWllpNDNTYTVwTktJdWRCUVNpV3ZMZ3cwSmlJLTF6S1hlV3hBajZPOG5ibFNIaTRSRzRueVpCd2I0U2JhWEMzWFBGSHVFU2R4ZnZRREhrVjBqYUFKSjJiRkJVdmgtUTNDajJDcUtQdlA5dDdlTUpmVHB2NV9tS3RSTVlUb1pyNTg2a2xHOVhr?oc=5",
+        "date": "Thu, 08 Jun 2023 07:00:00 GMT",
+        "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "Many Bengal universities decide to introduce exit option after 3 years in UG level - Telegraph India",
+        "source": "Telegraph India",
+        "url": "https://www.telegraphindia.com",
         "date": "Thu, 08 Jun 2023 07:00:00 GMT",
         "snippet": "News Article (Reputable)"
       },
@@ -2048,6 +2209,13 @@ const FYUGP_DATA = [
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPRExHZWhJdXNydko2YUk0eEdIUm5oRkZmUjN3VlN6R2R3VGN5RzRLbHVwMW9yRTBoam5FUGIwdGhWd0JjLWhFWDMzTVRoTEYxRGdWVFhGYzhsc1dUdVdLOTExVUVGRFdSaWhxa3p5Vi10WklFN0xBX0Vjb05abHZqeWVuRVo5Mk55RlNxNXZLM1NndG9YYkpPc0xwbW1nRlByY2tidVJyWkZwLWM3V1lhVjBNNlRMRmRXU2NPUXFzYTcyZ2t0VUpJMVZNUXjSAdoBQVVfeXFMUEg3ekdRTnJKU1ZMdTZ0ZmFMSkJRcDU4QVpqUEhiSk5hb0xzcmRXWF84RUpINnBUdnVoRThhcTdteXo0OVRBaUdVTTZVMkUtRXBXRWtkZ2tNQ1RsdnU3TEwyM29tWHJCbllVcHZOaXp4TlZqSUYzd0tWQmg4OG9WSnFEallReVFMa01pQTBNOVg5aEk0NkIxWVZ1OU1RTVRVNEM2MWRTREJYaU9SQXZkRDg1RXlicU05Z2ttU1VqT0g4OTg5c0lWdVRqakFpUENBRl92N1FWMkd0TlE?oc=5",
         "date": "Thu, 31 Aug 2023 07:00:00 GMT",
         "snippet": "News Article (Reputable)"
+      },
+      {
+        "title": "Explained: Why Bengal Government Rejected NEP 2020 And Formulated Its Own Education Policy - outlookindia.com",
+        "source": "outlookindia.com",
+        "url": "https://www.outlookindia.com",
+        "date": "Thu, 31 Aug 2023 07:00:00 GMT",
+        "snippet": "News Article (Other)"
       },
       {
         "title": "Calcutta University struggles to implement NEP amid faculty shortage and fund crunch - Telegraph India",
