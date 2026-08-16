@@ -40,14 +40,14 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 
 /* Table */
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem}
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem;table-layout:fixed}
 th{padding:.5rem 1rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none}
 th:hover{color:var(--primary)}
 th.sort-asc::after{content:" ▲";font-size:.6rem}
 th.sort-desc::after{content:" ▼";font-size:.6rem}
 tbody tr{background:var(--card);box-shadow:var(--shadow);transition:box-shadow .15s,transform .15s}
 tbody tr:hover{box-shadow:var(--shadow-h);transform:translateY(-1px)}
-td{padding:.85rem 1rem;border:none;vertical-align:top}
+td{padding:.85rem 1rem;border:none;vertical-align:top;word-wrap:break-word}
 td:first-child{border-radius:var(--radius) 0 0 var(--radius)}
 td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 
@@ -85,7 +85,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol{margin:0;padding-left:1.3rem;font-size:.78rem;color:#334155}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
-.summary-cell{font-size:.82rem;color:#334155;max-width:380px}
+.summary-cell{font-size:.82rem;color:#334155;line-height:1.5}
 .summary-text{display:inline}
 .summary-text.collapsed{display:none}
 .summary-expand{color:var(--primary);font-size:.78rem;cursor:pointer;font-weight:500;white-space:nowrap}
@@ -145,13 +145,13 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <table>
       <thead>
         <tr>
-          <th style="width:2rem;text-align:center" data-sort="num">#</th>
-          <th data-sort="state">State / UT</th>
-          <th data-sort="status">Status</th>
-          <th>Summary</th>
-          <th>Universities</th>
-          <th data-sort="year">Year</th>
-          <th>Sources</th>
+          <th style="width:3rem;text-align:center" data-sort="num">#</th>
+          <th style="width:11rem" data-sort="state">State / UT</th>
+          <th style="width:9rem" data-sort="status">Status</th>
+          <th style="width:auto">Summary</th>
+          <th style="width:12rem">Universities</th>
+          <th style="width:5rem" data-sort="year">Year</th>
+          <th style="width:8rem">Sources</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
