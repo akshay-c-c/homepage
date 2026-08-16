@@ -140,7 +140,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="Enactment">📜 Enactment</button>
     <button class="filter-btn" data-filter="Implementation">⚙️ Implementation</button>
-    <button class="filter-btn" data-filter="Awaiting">⏳ Awaiting Adoption</button>
+    <button class="filter-btn" data-filter="Awaiting">⏳ Adoption Awaited</button>
   </div>
   <div class="filters" style="margin-top:-.4rem">
     <label>Type:</label>
@@ -197,7 +197,7 @@ function statusInfo(status) {
   if (s.includes('implementation') && s.includes('select univ')) return {label:'Implementation — Select Univ.', cls:'s-implementation', short:'Implementation'};
   if (s.includes('implementation') && s.includes('select coll')) return {label:'Implementation — Select Colleges', cls:'s-implementation', short:'Implementation'};
   if (s.includes('implementation'))                           return {label:'FYUGP Implementation', cls:'s-implementation', short:'Implementation'};
-  if (s.includes('awaiting'))                                 return {label:'Awaiting Adoption', cls:'s-awaiting', short:'Awaiting'};
+  if (s.includes('awaiting'))                                 return {label:'FYUGP Adoption Awaited', cls:'s-awaiting', short:'Awaited'};
   // Legacy statuses (still show, but without "Legacy" label)
   if (s.includes('live') || s.includes('fully'))              return {label:status, cls:'s-live', short:'Live'};
   if (s.includes('pilot') || s.includes('phased'))            return {label:status, cls:'s-pilot', short:'Pilot'};
@@ -219,7 +219,7 @@ function renderStats() {
     <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
     <div class="stat-card"><div class="num">${enactment}</div><div class="lbl">📜 Enactment</div></div>
     <div class="stat-card"><div class="num">${implementation}</div><div class="lbl">⚙️ Implementation</div></div>
-    <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Awaiting Adoption</div></div>
+    <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Adoption Awaited</div></div>
   `;
 }
 
