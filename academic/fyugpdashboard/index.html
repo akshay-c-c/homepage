@@ -52,17 +52,26 @@ td:first-child{border-radius:var(--radius) 0 0 var(--radius)}
 td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 
 /* Badges */
-.status{display:inline-block;font-size:.76rem;font-weight:600;padding:.25rem .75rem;border-radius:999px;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:4px;white-space:nowrap;letter-spacing:.2px}
+.status::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;flex-shrink:0}
 /* New framework */
-.s-enactment{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
-.s-implementation{background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe}
-.s-awaiting{background:#f1f5f9;color:var(--muted);border:1px solid var(--border)}
+.s-enactment{background:#ecfdf5;color:#047857}
+.s-enactment::before{background:#10b981}
+.s-implementation{background:#eff6ff;color:#1d4ed8}
+.s-implementation::before{background:#3b82f6}
+.s-awaiting{background:#f8fafc;color:#64748b}
+.s-awaiting::before{background:#94a3b8}
 /* Legacy statuses (for states not yet updated by AI) */
-.s-live{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0}
-.s-pilot,.s-draft,.s-partial{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
-.s-resist{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
-.s-limited{background:#e0e7ff;color:#3730a3;border:1px solid #c7d2fe}
-.s-unknown{background:#f1f5f9;color:var(--muted);border:1px solid var(--border)}
+.s-live{background:#ecfdf5;color:#047857}
+.s-live::before{background:#10b981}
+.s-pilot,.s-draft,.s-partial{background:#fffbeb;color:#b45309}
+.s-pilot::before,.s-draft::before,.s-partial::before{background:#f59e0b}
+.s-resist{background:#fef2f2;color:#b91c1c}
+.s-resist::before{background:#ef4444}
+.s-limited{background:#eef2ff;color:#4338ca}
+.s-limited::before{background:#6366f1}
+.s-unknown{background:#f8fafc;color:#64748b}
+.s-unknown::before{background:#94a3b8}
 .cat-tag{display:inline-block;font-size:.65rem;font-weight:600;text-transform:uppercase;padding:.15rem .5rem;border-radius:4px;background:#e2e8f0;color:#475569}
 .cat-state{background:#dbeafe;color:#3730a3}
 
@@ -131,8 +140,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="Enactment">📜 Enactment</button>
     <button class="filter-btn" data-filter="Implementation">⚙️ Implementation</button>
-    <button class="filter-btn" data-filter="Awaiting">⏳ Awaiting</button>
-    <button class="filter-btn" data-filter="Legacy">⚪ Legacy / Old Data</button>
+    <button class="filter-btn" data-filter="Awaiting">⏳ Awaiting Adoption</button>
   </div>
   <div class="filters" style="margin-top:-.4rem">
     <label>Type:</label>
@@ -189,15 +197,15 @@ function statusInfo(status) {
   if (s.includes('implementation') && s.includes('select univ')) return {label:'Implementation — Select Univ.', cls:'s-implementation', short:'Implementation'};
   if (s.includes('implementation') && s.includes('select coll')) return {label:'Implementation — Select Colleges', cls:'s-implementation', short:'Implementation'};
   if (s.includes('implementation'))                           return {label:'FYUGP Implementation', cls:'s-implementation', short:'Implementation'};
-  if (s.includes('awaiting'))                                 return {label:'Awaiting FYUGP Adoption', cls:'s-awaiting', short:'Awaiting'};
-  // Legacy statuses (for states not yet updated by AI)
-  if (s.includes('live') || s.includes('fully'))              return {label:status, cls:'s-live', short:'Live (Legacy)'};
-  if (s.includes('pilot') || s.includes('phased'))            return {label:status, cls:'s-pilot', short:'Pilot (Legacy)'};
-  if (s.includes('draft') || s.includes('proposed'))          return {label:status, cls:'s-draft', short:'Draft (Legacy)'};
-  if (s.includes('partial'))                                  return {label:status, cls:'s-partial', short:'Partial (Legacy)'};
-  if (s.includes('resist') || s.includes('not adopt'))        return {label:status, cls:'s-resist', short:'Resisting (Legacy)'};
-  if (s.includes('limited') || s.includes('select'))          return {label:status, cls:'s-limited', short:'Limited (Legacy)'};
-  if (s.includes('unknown'))                                  return {label:status, cls:'s-unknown', short:'Unknown (Legacy)'};
+  if (s.includes('awaiting'))                                 return {label:'Awaiting Adoption', cls:'s-awaiting', short:'Awaiting'};
+  // Legacy statuses (still show, but without "Legacy" label)
+  if (s.includes('live') || s.includes('fully'))              return {label:status, cls:'s-live', short:'Live'};
+  if (s.includes('pilot') || s.includes('phased'))            return {label:status, cls:'s-pilot', short:'Pilot'};
+  if (s.includes('draft') || s.includes('proposed'))          return {label:status, cls:'s-draft', short:'Draft'};
+  if (s.includes('partial'))                                  return {label:status, cls:'s-partial', short:'Partial'};
+  if (s.includes('resist') || s.includes('not adopt'))        return {label:status, cls:'s-resist', short:'Resisting'};
+  if (s.includes('limited') || s.includes('select'))          return {label:status, cls:'s-limited', short:'Limited'};
+  if (s.includes('unknown'))                                  return {label:status, cls:'s-unknown', short:'Unknown'};
   return {label: status || 'No data', cls:'s-unknown', short:'Unknown'};
 }
 
@@ -207,13 +215,11 @@ function renderStats() {
   const enactment = count(/enactment/);
   const implementation = count(/implementation/);
   const awaiting = count(/awaiting/);
-  const legacy = allData.length - enactment - implementation - awaiting;
   document.getElementById('statsBar').innerHTML = `
     <div class="stat-card"><div class="num">${allData.length}</div><div class="lbl">States/UTs</div></div>
     <div class="stat-card"><div class="num">${enactment}</div><div class="lbl">📜 Enactment</div></div>
     <div class="stat-card"><div class="num">${implementation}</div><div class="lbl">⚙️ Implementation</div></div>
-    <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Awaiting</div></div>
-    <div class="stat-card"><div class="num">${legacy}</div><div class="lbl">⚪ Legacy</div></div>
+    <div class="stat-card"><div class="num">${awaiting}</div><div class="lbl">⏳ Awaiting Adoption</div></div>
   `;
 }
 
@@ -440,13 +446,9 @@ function applyFilters() {
 
   if (filter !== 'all') {
     const checks = {
-      'Enactment':     s => /enactment/.test(s.toLowerCase()),
+      'Enactment':      s => /enactment/.test(s.toLowerCase()),
       'Implementation': s => /implementation/.test(s.toLowerCase()),
-      'Awaiting':      s => /awaiting/.test(s.toLowerCase()),
-      'Legacy':        s => {
-        const sl = s.toLowerCase();
-        return !sl.includes('enactment') && !sl.includes('implementation') && !sl.includes('awaiting');
-      },
+      'Awaiting':       s => /awaiting/.test(s.toLowerCase()),
     };
     const checker = checks[filter] || (s => s.toLowerCase().includes(filter.toLowerCase()));
     filtered = filtered.filter(d => checker(d.implementation_status || ''));
