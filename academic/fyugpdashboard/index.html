@@ -40,7 +40,7 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 
 /* Table */
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem;table-layout:fixed}
+table{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:.88rem}
 th{padding:.5rem 1rem;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none}
 th:hover{color:var(--primary)}
 th.sort-asc::after{content:" ▲";font-size:.6rem}
@@ -99,7 +99,7 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
 .univ-list-panel ol{margin:0;padding-left:1.3rem;font-size:.78rem;color:#334155}
 .univ-list-panel ol li{padding:.15rem 0;border-bottom:1px solid #f1f5f9}
 .univ-list-panel ol li:last-child{border-bottom:none}
-.summary-cell{font-size:.82rem;color:#334155;line-height:1.5}
+.summary-cell{font-size:.82rem;color:#334155;line-height:1.5;min-width:26rem}
 .summary-text{display:inline}
 .summary-text.collapsed{display:none}
 .summary-expand{color:var(--primary);font-size:.78rem;cursor:pointer;font-weight:500;white-space:nowrap}
@@ -156,12 +156,12 @@ td:last-child{border-radius:0 var(--radius) var(--radius) 0}
       <thead>
         <tr>
           <th style="width:3rem;text-align:center" data-sort="num">#</th>
-          <th style="width:11rem" data-sort="state">State / UT</th>
-          <th style="width:9rem" data-sort="status">Status</th>
-          <th style="width:auto">Summary</th>
-          <th style="width:12rem">Universities</th>
+          <th style="width:12rem" data-sort="state">State / UT</th>
+          <th style="width:11rem" data-sort="status">Status</th>
+          <th style="min-width:28rem">Summary</th>
+          <th style="width:10rem">Universities</th>
           <th style="width:5rem" data-sort="year">Year</th>
-          <th style="width:8rem">Sources</th>
+          <th style="width:7rem">Sources</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
